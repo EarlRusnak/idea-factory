@@ -21,8 +21,11 @@ direct Search Console data and live homepage checks.
 2. Gmail, last 35 days from sc-noreply@google.com: monthly performance emails (clicks, impressions, top and
    growing pages and queries, devices, countries), indexing alerts, validation results, structured-data
    notices, milestone emails. Prior month's email is fetched for percentage change.
-3. Adspirer › Google Search Console, if connected (not connected as of 2026-09-10). One authorization in
-   Adspirer › Settings › Connections upgrades the review to query-level data.
+3. Adspirer › Google Search Console, if connected (not connected as of 2026-09-10). Connect it at
+   https://adspirer.ai/connections (the Adspirer account is already linked to Claude; Google Ads is connected).
+   Adspirer free tier allows 15 tool calls per month, so the routine checks remaining quota first and makes at
+   most 2 billable calls per run (healing-skin.com and acumedgroup.com, 28 days by page and query). It skips
+   Adspirer entirely when fewer than 4 calls remain in the month.
 4. WebFetch of each homepage for title, meta description, H1, canonical, noindex. Currently blocked by the
    environment network policy; the review records "live check unavailable" until the domains are allowed.
 

@@ -17,6 +17,7 @@ Shared outputs
 - Email summaries go to info@drrusnakwellness.com.
 - Rows ready to paste into the Mission Control task tracker: [mission-control/rows.md](mission-control/rows.md).
 - Site inventory used by the SEO processes: [processes/site-inventory.md](processes/site-inventory.md).
+- One-off runbooks: [voip-int.com crawl unblock](processes/voip-int-crawl-unblock.md) with its audit and fix scripts in `tools/`.
 
 Schedules are stored in UTC (12:30, 13:00). They read as 8:30 / 9:00 AM Eastern during daylight time and
 7:30 / 8:00 AM after clocks change in November; adjust the cron by one hour then if the earlier time is a problem.

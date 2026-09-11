@@ -58,6 +58,37 @@ property has probably gone dark (see finding 4).
 Not an issue any more: the Jul 18 "Page with redirect / noindex in sitemap" pair. `/contactus` is out of
 the sitemap and no sitemap URL answers noindex today.
 
+### Search Console Pages report (exported 2026-09-11, data through 2026-09-03)
+
+Google kept collecting while the property was unverified, so the export shows the whole summer.
+
+| Date | Indexed | Not indexed | Impressions / day (7-day feel) |
+| --- | --- | --- | --- |
+| Jun 29 (first day with counts) | 294 | 1,186 | ~950 |
+| Jul 10 – Jul 23 | 333 | 1,528 | ~1,000 |
+| Jul 24 | 296 | 1,624 | ~650 |
+| Aug 7 – Aug 16 | 279 → 276 | 1,641 → 1,652 | ~700 |
+| Sep 3 (latest) | 256 | 1,580 | ~750 |
+
+Indexed pages fell by 77 (23%) between Jul 23 and Sep 3, in steps on Jul 24, Aug 5–10, Aug 17, Aug 21
+and Aug 28. Daily impressions fell from ~1,000 in mid-July to ~600–800 from Jul 24 on.
+
+| Not-indexed reason | Pages | Read against the live audit |
+| --- | --- | --- |
+| Blocked by robots.txt | 550 | Tag/date archive URLs, `/shop/*`, product images, system routes. Expected for the junk; the 10 sitemap URLs in finding 5 are inside this number. |
+| Crawled, currently not indexed | 375 | Mostly legacy blog URLs and pagination Google chose not to keep. |
+| Excluded by noindex | 363 | Down from 666 on Jul 10 as blocked archive URLs stopped being fetched. |
+| Page with redirect | 161 | The legacy 301s working. Normal. |
+| Not found (404) | 81 | Includes the two glossary pages. Needs the URL list. |
+| Alternate page with proper canonical | 39 | Normal. |
+| Discovered, not indexed | 8 | Normal. |
+| Duplicate, Google chose different canonical | 3 | Normal. |
+| **Indexed, though blocked by robots.txt** | **94** | These sit inside the 256 "indexed": URLs Google keeps but cannot read. `/web/login`, `/shop/*` and legacy archive URLs. They leave only when the block comes off and a noindex is visible (finding 6). |
+
+So of 256 indexed URLs, 94 are ones we do not want, which leaves about 162 wanted pages indexed
+against 164 in the sitemap. The indexing itself is close to right; the losses are the 94 stuck
+junk URLs and the pages that dropped since Jul 24 (the 404 and "crawled, not indexed" lists say which).
+
 ### Evidence trail (from Gmail and Drive, kept for the record)
 
 | Date | Source | Fact |
@@ -71,6 +102,7 @@ the sitemap and no sitemap URL answers noindex today.
 | Aug 16, Sep 1 | Live robots.txt comments | System routes blocked; Central Florida Telecom category unblocked. |
 | Sep 8 | Gmail · Search Console | August performance emails for healing-skin.com and acumedgroup.com. None for voip-int.com (none for July either). |
 | Sep 11 | Live audit | Findings 1–7 above. Full table in `tools/audit-2026-09-11.md`. |
+| Sep 11 | Search Console export (data to Sep 3) | Indexed 256 (94 of them robots-blocked), not indexed 1,580; indexed count down 77 since Jul 23. |
 
 ## 2. Why a robots block is the wrong tool for pages Google already has
 

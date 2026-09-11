@@ -153,3 +153,15 @@ Both scripts are dry-run by default and back up before writing. They need `ODOO_
 - The environment network policy now allows the six site domains, so the Wednesday SEO Review can run
   the audit script itself. Search Console will not be connected in Adspirer (the single slot stays on
   Google Ads), so Search Console evidence keeps coming from Gmail.
+
+## 6. Request-indexing batches (Search Console › URL Inspection › Request indexing)
+
+All 35 URLs answered 200 on 2026-09-11. Ten a day is the practical quota; do them in this order and
+tick the day off in the tracker row. The two glossary URLs are excluded until they answer 200.
+
+| Day | URLs |
+| --- | --- |
+| 1 | `/` · `/pricing` · `/phone-service` · `/pro-mobile` · `/ai-receptionist` · `/vfax` · `/sip-trunking` · `/mitel-replacement` · `/integrations` · `/features` |
+| 2 | `/property-management` · `/field-service` · `/sales-teams` · `/multi-location` · `/healthcare-practice-phone-system` · `/dental-practice-phone-system` · `/wellness-clinic-phone-system` · `/legal-firm-phone-system` · `/real-estate-phone-system` · `/replace-cell-phone-allowance` |
+| 3 | `/vs` · `/vs/ringcentral` · `/vs/nextiva` · `/vs/8x8` · `/vs/ooma` · `/locations` · `/orlando-business-phone` · `/hardware` · `/voip-insights` · `/voip-reseller-program` |
+| 4 | `/about` · `/faq` · `/contact` · `/get-started` · `/blog` · then `/call-retrieve` and `/message-waiting-indicator-mwi` once restored |

@@ -4,7 +4,7 @@
 DRY-RUN by default. Nothing is written without --apply. Every write is backed up first to
 ./crawl_fix_backups/ and logged to ./crawl_fix_log.md.
 
-Steps (select with --steps a,b; default runs all):
+Steps (select with --steps a,b; default runs only "robots"; "indexing" is opt-in):
   indexing  : website.page on website 5 — set website_indexed=True for every published page
               except the NEVER_INDEX list, and website_indexed=False for NEVER_INDEX (this is
               what removes a redirecting or private page from Odoo's sitemap).
@@ -38,19 +38,24 @@ NEVER_INDEX = {
     "/get-started/thank-you",   # conversion page
     "/contactus",               # 301 → /contact since 2026-07-02; if a page record still exists it
                                 # must stay out of the sitemap ("Page with redirect")
+    # Partner-program pages, deliberately unlisted (seen non-indexed on the 2026-09-11 dry run)
+    "/partners/refer",
+    "/partners/refer-thanks",
+    "/partners/thank-you",
+    "/partners/welcome",
 }
 
-# Custom robots block for website 5 (replaces the custom section; Odoo prepends its own
-# "User-agent: *" group with Allow: /social_instagram/ and the Sitemap line).
+# Custom robots block for website 5. Odoo renders its own "User-agent: *" group (Allow: /social_instagram/,
+# Sitemap), then a "custom" banner, then "User-agent: *" + "Allow: /cards/", then THIS field verbatim.
+# So this text must start with rules, not a User-agent line (the 2026-09-11 dry run confirmed the field
+# starts at "Disallow: /web/login").
 # Same blocks as the live 2026-09-11 file minus /web/login and /shop: both already carry (or will
 # carry) an X-Robots-Tag noindex, and a robots block would stop Google from ever reading it.
 # Re-add those two Disallows once Search Console shows the URLs gone.
 # NOTE: Robert's voip_seo module keeps a sitemap-exclusion prefix list that mirrors these Disallow lines
 # (added 2026-09-11). Any change here must be mirrored there; tell Robert when this block changes.
 ROBOTS_CUSTOM = """\
-# --- voip-int.com custom rules (managed by tools/voip_crawl_fix.py, 2026-09-11) ---
-User-agent: *
-Allow: /cards/
+# --- custom rules managed by tools/voip_crawl_fix.py (2026-09-11); Odoo emits the User-agent line above ---
 Disallow: /my
 Disallow: /web/signup
 Disallow: /web/reset_password
@@ -86,7 +91,7 @@ Allow: /
 APPLY = "--apply" in sys.argv
 sel = [a.split("=", 1)[1] if "=" in a else sys.argv[sys.argv.index(a) + 1]
        for a in sys.argv if a.startswith("--steps")]
-STEPS = sel[0].split(",") if sel else ["indexing", "robots"]
+STEPS = sel[0].split(",") if sel else ["robots"]
 
 
 def log(msg):

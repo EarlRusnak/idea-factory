@@ -11,15 +11,14 @@ updated: 2026-09-10
 | acumedgroup.com | AcuMedGroup medical clinic | WordPress | Yes ("Acumedgroup") | Yes | #1 profit center; Health Score 77 on Aug 29 |
 | drrusnakwellness.com | Dr. Rusnak Wellness | Shopify | Yes ("Drrusnakwellness") | Yes | 4xx indexing fix under validation since Sep 7 |
 | drrusnakacademy.com | Dr. Rusnak Academy | WordPress | No | Yes | Milestone: 50 clicks / 28 days (Aug 13) |
-| voip-int.com | VoIP International | Odoo | Yes ("Voip-int") | Yes | Crawl unblocked Jul 2–7; Jul 18 GSC alerts (robots-block hides noindex; sitemap lists a redirect + noindexed URLs) still open — see [voip-int-crawl-unblock](voip-int-crawl-unblock.md) |
+| voip-int.com | VoIP International | Odoo | Yes ("Voip-int") | Probably lost (no Jul/Aug performance emails; Bing lost imported verification Aug 3) | Live audit Sep 11: glossary pages 404, www TLS broken, .us duplicate live, 10 robots-blocked URLs in sitemap — see [voip-int-crawl-unblock](voip-int-crawl-unblock.md) |
 | 3390oceanshore.com | Ormond Beach condo listing | Unknown | No | Yes | Temporary property; on market through 12/31/2026 |
 
 Ahrefs crawl emails arrive forwarded from info@drrusnakwellness.com to itself with the subject prefix
 `[voip-int] (Project name)`. Search Console emails come from sc-noreply@google.com.
 
-Live page fetches from the Claude cloud environment are currently blocked by the environment's network policy
-for all six domains (environment "Default", trusted network access). To enable live checks, open claude.ai/code ›
-Environments › Default › Network access, choose custom allowed domains, and add:
+Live page fetches from the Claude cloud environment work since 2026-09-11: the "Default" environment uses a custom
+network allowlist (open the cloud icon above the message box at claude.ai/code, gear on Default, Network access):
 
 ```
 voip-int.com  www.voip-int.com  voip-int.us  voip-int.co.uk

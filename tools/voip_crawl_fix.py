@@ -36,26 +36,38 @@ LOG = HERE / "crawl_fix_log.md"
 # Pages that exist as website.page records but must NOT be in the sitemap or the index.
 NEVER_INDEX = {
     "/get-started/thank-you",   # conversion page
-    "/contactus",               # 301 → /contact since 2026-07-02; a published+indexed page record
-                                # keeps it in the sitemap as "Page with redirect"
+    "/contactus",               # 301 → /contact since 2026-07-02; if a page record still exists it
+                                # must stay out of the sitemap ("Page with redirect")
 }
 
-# Custom robots block for website 5. Deliberately NOT blocking /web/login, /shop or the blog
-# tag/date archives: Google already holds those URLs, and a robots block stops it from ever
-# seeing the noindex that would remove them. They get noindex instead (Odoo serves it on blog
-# filter pages; nginx adds X-Robots-Tag on /web/login and /shop — see the runbook).
+# Custom robots block for website 5 (replaces the custom section; Odoo prepends its own
+# "User-agent: *" group with Allow: /social_instagram/ and the Sitemap line).
+# Same blocks as the live 2026-09-11 file minus /web/login and /shop: both already carry (or will
+# carry) an X-Robots-Tag noindex, and a robots block would stop Google from ever reading it.
+# Re-add those two Disallows once Search Console shows the URLs gone.
 ROBOTS_CUSTOM = """\
-# --- voip-int.com custom rules (managed by tools/voip_crawl_fix.py) ---
+# --- voip-int.com custom rules (managed by tools/voip_crawl_fix.py, 2026-09-11) ---
 User-agent: *
+Allow: /cards/
+Disallow: /my
 Disallow: /web/signup
 Disallow: /web/reset_password
 Disallow: /web/session/
-Disallow: /my/
-Disallow: /web/image/product.
-Disallow: /web/image/product/
-Disallow: /website/
-Disallow: /*?order=
-Disallow: /*?pricelist=
+# Blog tag/date archive combinatorial URLs (thin/duplicate filter pages)
+Disallow: /blog/*tag*
+Disallow: /*date_begin=*
+Disallow: /*date_end=*
+# Legacy product image URLs from deleted/unpublished catalog
+Disallow: /web/image/product
+# Odoo system/demo routes - no marketing value, thin or empty (added 2026-08-16)
+Disallow: /website/info
+Disallow: /slides
+Disallow: /profile
+Disallow: /appointment
+Disallow: /calendar
+Disallow: /partners/thank-you
+Disallow: /blog/our-blog-5
+# /web/login and /shop intentionally NOT blocked: they answer X-Robots-Tag noindex (nginx)
 
 User-agent: GPTBot
 Allow: /

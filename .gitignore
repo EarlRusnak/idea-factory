@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+tools/crawl_fix_backups/
+tools/crawl_fix_log.md

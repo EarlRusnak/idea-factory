@@ -143,8 +143,38 @@ def load_robots(base):
     r = fetch(base + "/robots.txt")
     text = r["body"].decode("utf-8", "replace") if r["status"] == 200 else ""
     rp = urllib.robotparser.RobotFileParser()
-    rp.parse(text.splitlines())
+    rp.parse(merge_robots_groups(text).splitlines())
     return r, text, rp
+
+
+def merge_robots_groups(text):
+    """Google merges every group that names the same user-agent into one rule set; Python's
+    robotparser uses only the first matching group. Odoo emits two 'User-agent: *' groups
+    (its own, then the custom block), so merge them before parsing."""
+    groups, order = {}, []
+    current, sitemaps = None, []
+    for raw in text.splitlines():
+        line = raw.split("#", 1)[0].strip()
+        if not line:
+            continue
+        key, _, val = line.partition(":")
+        key, val = key.strip().lower(), val.strip()
+        if key == "user-agent":
+            current = val.lower()
+            if current not in groups:
+                groups[current] = []
+                order.append(current)
+        elif key == "sitemap":
+            sitemaps.append(val)
+        elif current is not None and key in ("allow", "disallow"):
+            groups[current].append(f"{key.capitalize()}: {val}")
+    out = []
+    for ua in order:
+        out.append(f"User-agent: {ua}")
+        out.extend(groups[ua])
+        out.append("")
+    out.extend(f"Sitemap: {s}" for s in sitemaps)
+    return "\n".join(out)
 
 
 def load_sitemap(url, seen=None, depth=0):

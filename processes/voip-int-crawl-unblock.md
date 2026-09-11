@@ -2,9 +2,10 @@
 type: runbook
 area: seo
 site: voip-int.com
-owner: Earl Rusnak (Odoo side) · Robert Riley (nginx side)
-status: open — verification blocked from the cloud environment; scripts ready to run
+owner: Earl Rusnak (Odoo side) · Robert Riley (nginx / TLS side)
+status: open — live audit done 2026-09-11; fixes staged, not applied
 created: 2026-09-10
+updated: 2026-09-11
 standing_page: https://claude.ai/code/artifact/fcaa979a-43d4-400e-9e8f-d2ca53ed4cd2
 ---
 # voip-int.com — unblock the crawl
@@ -13,122 +14,141 @@ Goal: one consistent answer per URL. Every page that should rank is crawlable, i
 sitemap. Every page that should not rank answers **noindex** (so Google drops it) and is out of the
 sitemap. robots.txt blocks only what has no HTML of its own to carry a noindex.
 
-## 1. What was verified on 2026-09-10 (and what could not be)
+## 1. Live state on 2026-09-11
 
-Live checks of robots.txt and sitemap.xml are **blocked from the Claude cloud environment** (network
-policy denies voip-int.com, and the Wayback Machine and Search Console via Adspirer are not reachable
-either). Everything below comes from the evidence trail in Gmail and Drive. Run
-`tools/voip_crawl_audit.py` from any machine that can reach the site to turn this into a live table.
+`tools/voip_crawl_audit.py` ran against the live site once voip-int.com was allowed in the environment
+network policy. 164 sitemap URLs fetched, 154 clean.
+
+**The July fixes did land.** The Jul 10 package items are live: `/web/login` answers
+`X-Robots-Tag: noindex, nofollow`, the legacy blog namespace 301s to `/blog` (the `voip_seo` catch-all),
+`/contactus` 301s to `/contact` and is no longer in the sitemap, and http → https redirects. robots.txt
+was edited again on Aug 16 (Odoo system routes) and Sep 1 (Central Florida Telecom category unblocked
+on purpose). The earlier draft of this runbook said nothing was done after Jul 18; that was wrong for
+the site work. What was never done is the Search Console side: no validation was requested, and the
+property has probably gone dark (see finding 4).
+
+### Findings, most valuable first
+
+1. **The two glossary pages that carried the site's best query are 404.** `/call-retrieve` and
+   `/message-waiting-indicator-mwi` return 404 with no redirect and no replacement anywhere in the
+   sitemap. In June `/call-retrieve` had 11 clicks and "call retrieved meaning" was position 1 with
+   ~4,900 impressions a quarter. Nothing in Drive or Mail records their removal.
+2. **www.voip-int.com fails TLS.** The certificate on 72.21.12.147 is `CN=voip-int.us` with no
+   `www.voip-int.com` name, so every https://www request errors, and http://www returns 404 instead of a
+   301. Anyone who types www gets a browser warning.
+3. **voip-int.us still serves the full site with 200.** Its pages canonical to voip-int.com, which
+   limits the damage, but it should 301 host-wide (July H1 item, still open).
+4. **Search Console has probably lost ownership of https://voip-int.com/.** No monthly performance
+   email arrived for July or August while healing-skin.com and acumedgroup.com got theirs on Sep 8; last
+   year voip-int.com's came Sep 4. Bing reported on Aug 3 that it lost verification because the site was
+   "not in the list of verified sites imported" from Search Console. No `google-site-verification` meta
+   tag is in the homepage HTML. If verification was by HTML tag or file, an Odoo module update removed it.
+5. **Ten sitemap URLs are blocked by robots.txt** (the "Blocked by robots.txt / in a sitemap" alert):
+   `/shop`, `/appointment`, `/calendar` (301 → /appointment), `/slides`, `/slides/all` (303),
+   `/profile/users`, `/profile/ranks_badges`, `/website/info`, `/blog/our-blog-5`, `/blog/our-blog-5/feed`.
+   Odoo emits them because the eLearning, appointment, profile and a default empty blog are installed
+   and published; the Aug 16 robots edit blocked them but left them in the sitemap.
+6. **Two robots blocks hide a noindex.** `/web/login` now has the noindex header but is still
+   `Disallow`ed, so Google cannot see it and keeps the URL as "Indexed, though blocked". `/shop` is
+   blocked, in the sitemap, and has no noindex at all.
+7. robots.txt has two `User-agent: *` groups (Odoo's own, then the custom block). Google merges them;
+   Python's parser and some tools read only the first, which is why an earlier pass of the audit script
+   reported nothing blocked. The script now merges groups the way Google does.
+
+Not an issue any more: the Jul 18 "Page with redirect / noindex in sitemap" pair. `/contactus` is out of
+the sitemap and no sitemap URL answers noindex today.
+
+### Evidence trail (from Gmail and Drive, kept for the record)
 
 | Date | Source | Fact |
 | --- | --- | --- |
-| Jul 1 | Drive › SEO_AUDIT_REPORT.md, crawl_findings.md | robots.txt allowed everything; sitemap.xml was empty; ~25 of 29 pages carried `meta robots noindex` because `website_indexed` was off on the website.page records. |
-| Jul 2 | Drive › seo_fix_log.md | `run_seo_fixes.py --apply`: 8 legacy 301s created (incl. /contactus → /contact), `Disallow: /web/login` and `/my` appended to robots.txt, **61 pages switched to indexed** (only /get-started/thank-you left off), pricing view patched, blog meta descriptions set. Sitemap submitted to Search Console the same day. |
-| Jul 6–7 | Drive › Mission Control | Production cutover complete. "robots.txt bug root-caused and fixed by Robert — was an Odoo field issue, not nginx." 15 high-value legacy-blog 301s applied. **This is the fix you remember.** |
-| Jul 10 | Drive › VoIP_International_SEO_Audit_and_Recovery_Plan | robots.txt now blocks `/web/login`, `/my`, `/shop`, blog tag/date archives, legacy product images. Sitemap: 157 URLs, "Success". 294 indexed vs 1.19K not indexed (666 noindex, 468 crawled-not-indexed, 40 alternate-canonical). |
-| Jul 10 | Gmail (bounced) + Drive › FOR_ROBERT_seo_deploy_2026-07-10_v2.md | Deploy package for Robert. Email bounced ("attachment type not allowed"); v2 posted to Drive. Robert investigated item 0 (no cache layer). Still unchecked in v2: `voip_seo` module (blog catch-all 301, llms.txt, IndexNow key), IndexNow ping, **X-Robots-Tag noindex on /web/login**. |
-| Jul 16 | Gmail, sc-noreply | "Some fixes failed" for Review snippets structured data. |
-| Jul 18 | Gmail, sc-noreply (two alerts) | (a) New reasons: **Blocked by robots.txt** and **Indexed, though blocked by robots.txt**. (b) Pages **in a sitemap**: **Excluded by 'noindex' tag** and **Page with redirect**. |
-| Aug 3 | Gmail, Bing Webmaster | Bing ownership verification for voip-int.com **lost**. |
-| Aug 29 | Gmail, Ahrefs crawl | 171 URLs, Health Score 96, 11 errors, 32 warnings; headline issue 9 missing meta descriptions. |
-| Jul 18 → Sep 10 | Gmail, Drive, Mission Control, memory exports | **No record of anyone acting on the Jul 18 alerts.** No validation requested, no later Search Console mail, no Drive file, no Mission Control update touching robots/noindex after Jul 10. |
+| Jul 1 | Drive › SEO_AUDIT_REPORT.md | robots.txt allowed everything; sitemap empty; ~25 pages noindexed via `website_indexed` off. |
+| Jul 2 | Drive › seo_fix_log.md | 8 legacy 301s, `Disallow: /web/login` and `/my`, 61 pages switched to indexed, sitemap submitted. |
+| Jul 6–7 | Mission Control | Cutover complete; "robots.txt bug root-caused and fixed by Robert — an Odoo field issue"; 15 blog 301s. |
+| Jul 10 | Drive › Recovery Plan, FOR_ROBERT v2 | robots.txt blocks login, /my, /shop, tag/date archives. 294 indexed. Deploy package for Robert (email bounced, v2 on Drive). |
+| Jul 18 | Gmail · Search Console | Alerts: Blocked by robots.txt; Indexed though blocked; sitemap pages noindex / redirect. Never validated. |
+| Aug 3 | Gmail · Bing Webmaster | Verification lost; Bing could not find the site among the sites imported from Search Console. |
+| Aug 16, Sep 1 | Live robots.txt comments | System routes blocked; Central Florida Telecom category unblocked. |
+| Sep 8 | Gmail · Search Console | August performance emails for healing-skin.com and acumedgroup.com. None for voip-int.com (none for July either). |
+| Sep 11 | Live audit | Findings 1–7 above. Full table in `tools/audit-2026-09-11.md`. |
 
-**Verdict.** The crawl *was* fixed on Jul 2–7: the site-wide noindex came off, the sitemap filled, and
-Google indexed 294 pages. The Jul 18 alerts are a **second, different problem the fix created**: the
-expanded robots.txt now hides pages that Google already had, and the sitemap advertises at least one
-redirecting URL and some noindexed ones. That conflict has stood untouched since Jul 18.
+## 2. Why a robots block is the wrong tool for pages Google already has
 
-## 2. Why the July fix produced the July 18 alerts
-
-A robots.txt `Disallow` stops Googlebot from fetching the page, so Google **never sees the noindex** on
-it. A URL Google already had (from the old site or from the Jul 2–10 window) stays in the index as
-"Indexed, though blocked by robots.txt" for months. The Jul 6–10 robots expansion did exactly this to
-`/web/login` (which Google had ranked in the site's top pages), `/shop`, and the blog tag/date
-archives (which Odoo already serves with its own noindex; the 666 "Excluded by noindex" count on Jul 10
-proves Google was reading it).
-
-The sitemap alert has two halves:
-
-- **Page with redirect** — `/contactus` still exists as a published, indexed website.page record, so
-  Odoo lists it in the sitemap, while the Jul 2 rewrite 301s it to `/contact`. Same risk for any other
-  page record that later gained a rewrite. The audit script's `--odoo` mode names every such record.
-- **Excluded by noindex** — sitemap URLs that answer noindex. Candidates: shop product URLs if the
-  eCommerce sitemap is still emitted while the shop is hidden, blog filter URLs, and any page record
-  re-flagged during Robert's Jul 6 field fix. Google's own list is in Search Console › Pages ›
-  "Excluded by 'noindex' tag" filtered to *All submitted pages*; the audit script produces the same
-  list from outside.
+A robots.txt `Disallow` stops Googlebot from fetching the page, so Google never sees the noindex on it. A
+URL Google already had stays in the index as "Indexed, though blocked by robots.txt" for months. The
+right sequence for anything Google has already indexed is: serve noindex, leave it crawlable until it
+drops out, then (optionally) block it. Blocking is fine for URLs Google never indexed as content.
 
 ## 3. Decision: what should rank
 
-Rank list (in the sitemap, indexable, no robots block). This is the Jul 2 indexing list plus the
-controller pages that never had the flag.
+Rank list (in the sitemap, indexable, no robots block):
 
 - **Money pages:** `/`, `/pricing`, `/phone-service`, `/pro-mobile`, `/ai-receptionist`, `/vfax`,
-  `/sip-trunking`, `/mitel-replacement`, `/features`, `/integrations` and its 10 platform pages,
-  `/replace-cell-phone-allowance`, `/hardware`, `/get-started`.
-- **Verticals:** `/property-management`, `/field-service`, `/sales-teams`, `/multi-location`,
-  `/healthcare-practice-phone-system`, `/dental-practice-phone-system`, `/wellness-clinic-phone-system`,
-  `/legal-firm-phone-system`, `/real-estate-phone-system`.
-- **Comparison and local:** `/vs` + `/vs/8x8`, `/vs/nextiva`, `/vs/ooma`, `/vs/ringcentral`;
-  `/locations` + the 19 city pages.
-- **Trust and content:** `/about`, `/contact`, `/faq`, `/blog` and every VoIP International post
-  (blog 4), `/call-retrieve` and `/message-waiting-indicator-mwi` (already #1 for "call retrieved
-  meaning"; the glossary hub grows from here).
+  `/sip-trunking`, `/mitel-replacement`, `/features`, `/integrations` and its platform pages,
+  `/replace-cell-phone-allowance`, `/hardware`, `/get-started`, `/voip-insights`, `/voip-reseller-program`.
+- **Verticals:** property management, field service, sales teams, multi-location, healthcare, dental,
+  wellness, legal, real estate.
+- **Comparison and local:** `/vs` + 8x8, Nextiva, Ooma, RingCentral; `/locations` + the 19 city pages.
+- **Trust and content:** `/about`, `/contact`, `/faq`, `/blog`, every VoIP International post (blog 4),
+  and per the Sep 1 decision the Central Florida Telecom local posts (blog 3).
+- **Glossary:** `/call-retrieve` and `/message-waiting-indicator-mwi` restored (or 301 to a new
+  glossary URL), then the glossary hub from the Jul 10 plan.
 - **Indexable, not chased:** `/privacy`, `/aup`, `/cookie-policy`, `/terms-of-service`.
 
-Must not rank (noindex, out of the sitemap, **crawlable** until Google has dropped them):
+Must not rank:
 
-| URL / pattern | Mechanism | Who |
-| --- | --- | --- |
-| `/web/login` | `X-Robots-Tag: noindex, nofollow` at nginx (Jul 10 package, item 4). Remove `Disallow: /web/login` until it has left the index. | Robert |
-| `/shop` and `/shop/*` | Decision: **hidden until rebuilt on the site-5 theme** (it still renders the legacy website-1 header, contract pricelists and http og:urls). `X-Robots-Tag: noindex` at nginx on `^/shop`; remove `Disallow: /shop`; unpublish products so the eCommerce sitemap stops emitting them. If Earl wants the shop selling instead, the rebuild goes first and this row flips to "rank". | Robert (nginx) · Earl (products) |
-| Blog tag/date archives | Odoo's own noindex. Drop the robots block that hides it. | Earl (script) |
-| `/contactus` | Already 301s. Set `website_indexed = False` on the page record so it leaves the sitemap. | Earl (script) |
-| `/get-started/thank-you` | Stays `website_indexed = False`. | — |
-| `/blog/voip-international-blog-posts-2/*` | Catch-all 301 → `/blog` from the `voip_seo` module (exact rewrites keep winning). | Robert |
-| Central Florida Telecom posts (blog 3) | Should not rank on voip-int.com; move to their own website record or unpublish. Decision open. | Earl |
-| `/my/*`, `/web/signup`, `/web/reset_password`, `/web/session/*`, `/web/image/product*`, `?order=`, `?pricelist=` | robots.txt `Disallow` (no HTML worth a noindex; never indexed as content). | Earl (script) |
+| URL / pattern | Today | Mechanism to reach | Who |
+| --- | --- | --- | --- |
+| `/web/login` | noindex header + robots block | Remove `Disallow: /web/login` so Google can read the header and drop the URL; re-add the block after it is gone. | Earl (script) |
+| `/shop`, `/shop/*` | robots block, in sitemap, no noindex | `X-Robots-Tag: noindex` at nginx on `^/shop`, remove the Disallow, unpublish products. Stays hidden until rebuilt on the site-5 theme. | Robert (nginx) · Earl |
+| `/appointment`, `/calendar`, `/slides*`, `/profile/*`, `/website/info`, `/blog/our-blog-5*` | robots block, in sitemap | Delete the empty "our-blog-5" blog; for the module routes either uninstall the unused module or add a sitemap exclusion in `voip_seo` (override `website._enumerate_pages` / the sitemap rule to drop these prefixes). Until then these are Search Console warnings, not ranking problems. | Earl · Robert |
+| `/my/*`, `/web/signup`, `/web/reset_password`, `/web/session/*`, `/web/image/product*`, `?date_begin=`, `?date_end=`, `/blog/*tag*` | robots block | Keep. Never indexed as content. | — |
+| `/get-started/thank-you` | meta noindex | Keep. | — |
+| `/blog/voip-international-blog-posts-2/*` | 301 → /blog | Keep. | — |
+| `voip-int.us` (whole host) | serves 200, canonical → .com | 301 every path to `https://voip-int.com`. | Robert |
+| `www.voip-int.com` | TLS error | Add the name to the Let's Encrypt cert and 301 to the apex. | Robert |
 
 ## 4. Steps
 
-Run from a machine that can reach voip-int.com (the Mac or Windows PC with the `ODOO_*` exports, see
-MACBOOK-CONTINUATION.md). Every script is dry-run by default.
+Both scripts are dry-run by default and back up before writing. They need `ODOO_URL`, `ODOO_DB`,
+`ODOO_LOGIN`, `ODOO_KEY` in the environment (see MACBOOK-CONTINUATION.md; never commit them).
 
-1. **Audit first.** `python3 tools/voip_crawl_audit.py --odoo --out audit-before.md --csv urls-before.csv`
-   Attach the output to this runbook. It lists every sitemap URL that redirects, is noindexed, is
-   robots-blocked or is non-200, plus the Odoo page records behind them.
-2. **Odoo side.** `python3 tools/voip_crawl_fix.py` (dry run) then `--apply`. It flips
-   `website_indexed` on the rank list, turns it off for `/contactus` and the thank-you page, and
-   replaces the custom robots block with the one in the script (no `/web/login`, `/shop` or tag/date
-   disallows; explicit allows for GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended).
-   Backups land in `tools/crawl_fix_backups/`.
-3. **nginx side (Robert).** Add the two headers and install the `voip_seo` module from the Jul 10 package
-   (Drive › voip_seo_deploy_for_robert.zip):
+1. **Search Console ownership (Earl, today).** Open search.google.com/search-console, check whether
+   https://voip-int.com/ still appears as verified. If not, re-verify. Prefer a DNS TXT record on the
+   domain (a Domain property covers www, .us alias hosts and http/https) over an HTML tag that a module
+   update can strip. Then re-verify Bing (it imports from Search Console) and resubmit `/sitemap.xml`.
+2. **Glossary pages (Earl).** Find the two page records in Odoo (Website › Pages, search "retrieve" and
+   "mwi"): republish if unpublished, restore from the Jul backups if deleted, or create the glossary
+   hub and 301 the old URLs to it. Request indexing once they answer 200.
+3. **nginx and TLS (Robert) — before step 4, so `/shop` never goes crawlable without a noindex.**
 
    ```nginx
-   location = /web/login { add_header X-Robots-Tag "noindex, nofollow" always; # existing proxy_pass unchanged
-   }
-   location ^~ /shop { add_header X-Robots-Tag "noindex" always; # existing proxy_pass unchanged
-   }
+   location = /web/login { add_header X-Robots-Tag "noindex, nofollow" always; }   # already live
+   location ^~ /shop     { add_header X-Robots-Tag "noindex" always; }             # new
+   # add_header inside a location replaces inherited headers: re-declare site-wide ones there.
    ```
-   Note: `add_header` inside a `location` replaces inherited headers; re-declare any site-wide headers there.
-4. **Re-audit.** Same command as step 1 with `after` filenames. Acceptance: zero rows in "Sitemap
-   conflicts", every must-rank page `200 / allowed / no noindex`, every must-not-rank page either
-   `301` or `200 + noindex + allowed`, legacy blog probe `301`.
-5. **Search Console.** Pages report: open "Blocked by robots.txt", "Indexed, though blocked by
-   robots.txt", "Excluded by 'noindex' tag" and "Page with redirect", confirm the remaining URLs are
-   all on the must-not-rank list, then press **Validate fix** on each. Resubmit `/sitemap.xml`.
-   Request indexing for the 12 money pages (daily quota ~10, so two days).
-6. **Bing.** Re-verify voip-int.com in Bing Webmaster Tools (verification lost Aug 3), resubmit the
-   sitemap, then send the IndexNow ping from the Jul 10 package once the key file resolves.
-7. **Ahrefs.** Trigger a fresh crawl of project "Voip-int"; Monday's Health Report picks up the delta.
-8. **Close.** Update the site-inventory row and the Mission Control tracker row. Only then start the
-   content work (glossary hub, title rewrites) from the Jul 10 recovery plan.
+   Add `www.voip-int.com` to the certificate (`certbot --expand`), then 301 `www.voip-int.com` and
+   `voip-int.us` (all paths) to `https://voip-int.com$request_uri`.
+4. **Odoo side (Earl).** `python3 tools/voip_crawl_fix.py` (dry run), then `--apply`. It keeps every
+   published page indexed except the thank-you page, and rewrites the custom robots block to the one in
+   the script: same blocks as today minus `/web/login` and `/shop`, one merged group, explicit allows
+   for GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot and Google-Extended.
+5. **Sitemap hygiene (Earl + Robert).** Delete the empty "our-blog-5" blog. Decide per module: eLearning
+   (`/slides`, `/profile`) and appointments (`/appointment`, `/calendar`) are either in use, in which case
+   `voip_seo` gets a sitemap exclusion for those prefixes, or unused and uninstalled.
+6. **Re-audit.** `python3 tools/voip_crawl_audit.py --odoo --out audit-after.md --csv urls-after.csv`.
+   Acceptance: zero rows under "Sitemap conflicts"; every rank-list page 200 / allowed / no noindex;
+   `/web/login` and `/shop` allowed + noindex; legacy blog probe 301; `www` and `.us` 301 to the apex.
+7. **Search Console.** Validate the four Jul 18 issues, resubmit the sitemap, request indexing for the
+   money pages and the two glossary pages over two days.
+8. **Close.** Update the site-inventory row and the Mission Control tracker row, then start the content
+   work from the Jul 10 recovery plan.
 
-## 5. Inputs the process depends on
+## 5. Inputs
 
 - Gmail: sc-noreply@google.com alerts for voip-int.com; Ahrefs `[voip-int] (Voip-int)` crawl emails.
 - Drive: `seo-audit-2026-07-10/`, `seo_fix_log.md`, `FOR_ROBERT_seo_deploy_2026-07-10_v2.md`, `voip_seo/`.
-- Odoo: website 5, DB `voipintl19`, XML-RPC with a per-user API key (never in the repo).
-- To let the Wednesday SEO Review verify this itself, allow voip-int.com in the environment's network
-  policy and connect Google Search Console inside Adspirer.
+- Odoo: website 5, DB `voipintl19`, XML-RPC with a per-user API key.
+- The environment network policy now allows the six site domains, so the Wednesday SEO Review can run
+  the audit script itself. Search Console will not be connected in Adspirer (the single slot stays on
+  Google Ads), so Search Console evidence keeps coming from Gmail.

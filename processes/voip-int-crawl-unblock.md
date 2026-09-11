@@ -3,7 +3,7 @@ type: runbook
 area: seo
 site: voip-int.com
 owner: Earl Rusnak (Odoo side) · Robert Riley (nginx / TLS side)
-status: open — nginx items live 2026-09-11 (Robert); next: robots change (Earl), Odoo 15 export, glossary pages
+status: crawl blocks closed 2026-09-11; open: Odoo 15 export → glossary pages + legacy 301s, Search Console validation
 created: 2026-09-10
 updated: 2026-09-11
 standing_page: https://claude.ai/code/artifact/fcaa979a-43d4-400e-9e8f-d2ca53ed4cd2
@@ -137,6 +137,21 @@ the ~55 legacy pages have been exported.**
 - Re-audit: **0 sitemap conflicts, 154 of 154 clean.** Remaining: the two glossary 404s (finding 1) and the
   two `ROBOTS_BLOCK_HIDES_NOINDEX` rows (`/web/login`, `/shop`), which the robots change in step 4 clears.
 
+### Update 2026-09-11 (later): robots change applied, finding 6 closed
+
+Earl ran `tools/voip_crawl_fix.py --steps robots --apply` from the Mac (uid 6, backup in
+`tools/crawl_fix_backups/`). Live robots.txt now has no Disallow for `/web/login` or `/shop`, keeps every other
+block, and adds explicit allows for GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot and Google-Extended.
+Re-audit: 154 of 154 sitemap URLs clean, no `ROBOTS_BLOCK_HIDES_NOINDEX` rows; `/web/login` and `/shop` are
+allowed + noindex. The only remaining audit rows are the two glossary 404s (finding 1).
+
+Two things the dry run taught us, now in the script: Odoo renders `User-agent: *` and `Allow: /cards/` itself
+ahead of the custom field, so the field must start with rules; and four partner-program pages
+(`/partners/refer`, `/partners/refer-thanks`, `/partners/thank-you`, `/partners/welcome`) are deliberately
+non-indexed, so they are on the never-index list and the indexing step is opt-in only.
+
+The API key used for this run was pasted into the working chat; rotate it in Odoo (My Profile › Account Security).
+
 ### Evidence trail (from Gmail and Drive, kept for the record)
 
 | Date | Source | Fact |
@@ -151,6 +166,7 @@ the ~55 legacy pages have been exported.**
 | Sep 8 | Gmail · Search Console | August performance emails for healing-skin.com and acumedgroup.com. None for voip-int.com (none for July either). |
 | Sep 11 | Live audit | Findings 1–7 above. Full table in `tools/audit-2026-09-11.md`. |
 | Sep 11 | Search Console export (data to Sep 3) | Indexed 256 (94 of them robots-blocked), not indexed 1,580; indexed count down 77 since Jul 23. |
+| Sep 11 (later) | Earl, verified live | robots.txt: /web/login and /shop Disallows removed, AI-crawler allows added. Re-audit clean; finding 6 closed. |
 | Sep 11 (pm) | Robert, verified live | www cert + 301, voip-int.us 301, X-Robots-Tag noindex on /shop, voip_seo sitemap exclusion (164 → 154 URLs). Re-audit: 0 sitemap conflicts. |
 | Sep 11 | Search Console drill-downs + Performance | 94 blocked-but-indexed = shop catalog + login; 81 404s = ~55 un-migrated Odoo 15 pages incl. the glossary; /call-retrieve still 15 clicks / 3,701 impressions while 404. |
 
@@ -206,7 +222,7 @@ Both scripts are dry-run by default and back up before writing. They need `ODOO_
    `python3 tools/voip_legacy_redirects.py` (dry run), then `--apply`, to 301 the other ~60 legacy URLs.
 3. **nginx and TLS (Robert).** Done 2026-09-11: www cert + 301, voip-int.us 301, `X-Robots-Tag: noindex`
    on `/shop`, and a `voip_seo` sitemap exclusion for the robots-blocked prefixes (sitemap 164 → 154).
-4. **Odoo side (Earl) — next.** `python3 tools/voip_crawl_fix.py --steps robots` (dry run), then `--apply`. It keeps every
+4. **Odoo side (Earl).** Done 2026-09-11: `python3 tools/voip_crawl_fix.py --steps robots --apply`. It keeps every
    published page indexed except the thank-you page, and rewrites the custom robots block to the one in
    the script: same blocks as today minus `/web/login` and `/shop`, one merged group, explicit allows
    for GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot and Google-Extended.
@@ -216,7 +232,7 @@ Both scripts are dry-run by default and back up before writing. They need `ODOO_
 6. **Re-audit.** `python3 tools/voip_crawl_audit.py --odoo --out audit-after.md --csv urls-after.csv`.
    Acceptance: zero rows under "Sitemap conflicts"; every rank-list page 200 / allowed / no noindex;
    `/web/login` and `/shop` allowed + noindex; legacy blog probe 301; `www` and `.us` 301 to the apex.
-7. **Search Console.** Validate the four Jul 18 issues, resubmit the sitemap, request indexing for the
+7. **Search Console — next.** After a crawl or two, validate the four Jul 18 issues, resubmit the sitemap, request indexing for the
    money pages and the two glossary pages over two days.
 8. **Close.** Update the site-inventory row and the Mission Control tracker row, then start the content
    work from the Jul 10 recovery plan.

@@ -3,7 +3,7 @@ type: runbook
 area: seo
 site: voip-int.com
 owner: Earl Rusnak (Odoo side) · Robert Riley (nginx / TLS side)
-status: open — live audit done 2026-09-11; fixes staged, not applied
+status: open — live audit done 2026-09-11; Search Console re-verified 2026-09-11; fixes staged, not applied
 created: 2026-09-10
 updated: 2026-09-11
 standing_page: https://claude.ai/code/artifact/fcaa979a-43d4-400e-9e8f-d2ca53ed4cd2
@@ -113,10 +113,11 @@ Must not rank:
 Both scripts are dry-run by default and back up before writing. They need `ODOO_URL`, `ODOO_DB`,
 `ODOO_LOGIN`, `ODOO_KEY` in the environment (see MACBOOK-CONTINUATION.md; never commit them).
 
-1. **Search Console ownership (Earl, today).** Open search.google.com/search-console, check whether
-   https://voip-int.com/ still appears as verified. If not, re-verify. Prefer a DNS TXT record on the
-   domain (a Domain property covers www, .us alias hosts and http/https) over an HTML tag that a module
-   update can strip. Then re-verify Bing (it imports from Search Console) and resubmit `/sitemap.xml`.
+1. **Search Console ownership.** Done 2026-09-11: the property was not verified; Earl re-verified it.
+   Still to do in the same sitting: resubmit `/sitemap.xml` under the property, and in Bing Webmaster
+   Tools re-import from Search Console (or add the site again) so Bing verification comes back. The
+   Pages and Performance reports refill over the next few days; expect a fresh "Blocked by robots.txt"
+   alert for the ten sitemap URLs in finding 5 until step 5 is done.
 2. **Glossary pages (Earl).** Find the two page records in Odoo (Website › Pages, search "retrieve" and
    "mwi"): republish if unpublished, restore from the Jul backups if deleted, or create the glossary
    hub and 301 the old URLs to it. Request indexing once they answer 200.

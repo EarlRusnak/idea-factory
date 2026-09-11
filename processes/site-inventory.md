@@ -11,7 +11,7 @@ updated: 2026-09-10
 | acumedgroup.com | AcuMedGroup medical clinic | WordPress | Yes ("Acumedgroup") | Yes | #1 profit center; Health Score 77 on Aug 29 |
 | drrusnakwellness.com | Dr. Rusnak Wellness | Shopify | Yes ("Drrusnakwellness") | Yes | 4xx indexing fix under validation since Sep 7 |
 | drrusnakacademy.com | Dr. Rusnak Academy | WordPress | No | Yes | Milestone: 50 clicks / 28 days (Aug 13) |
-| voip-int.com | VoIP International | Odoo | Yes ("Voip-int") | Probably lost (no Jul/Aug performance emails; Bing lost imported verification Aug 3) | Live audit Sep 11: glossary pages 404, www TLS broken, .us duplicate live, 10 robots-blocked URLs in sitemap — see [voip-int-crawl-unblock](voip-int-crawl-unblock.md) |
+| voip-int.com | VoIP International | Odoo | Yes ("Voip-int") | Yes (re-verified Sep 11 after being lost ~late Jul) | Live audit Sep 11: glossary pages 404, www TLS broken, .us duplicate live, 10 robots-blocked URLs in sitemap — see [voip-int-crawl-unblock](voip-int-crawl-unblock.md) |
 | 3390oceanshore.com | Ormond Beach condo listing | Unknown | No | Yes | Temporary property; on market through 12/31/2026 |
 
 Ahrefs crawl emails arrive forwarded from info@drrusnakwellness.com to itself with the subject prefix

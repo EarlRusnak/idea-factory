@@ -45,6 +45,8 @@ NEVER_INDEX = {
 # Same blocks as the live 2026-09-11 file minus /web/login and /shop: both already carry (or will
 # carry) an X-Robots-Tag noindex, and a robots block would stop Google from ever reading it.
 # Re-add those two Disallows once Search Console shows the URLs gone.
+# NOTE: Robert's voip_seo module keeps a sitemap-exclusion prefix list that mirrors these Disallow lines
+# (added 2026-09-11). Any change here must be mirrored there; tell Robert when this block changes.
 ROBOTS_CUSTOM = """\
 # --- voip-int.com custom rules (managed by tools/voip_crawl_fix.py, 2026-09-11) ---
 User-agent: *

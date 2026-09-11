@@ -3,7 +3,7 @@ type: runbook
 area: seo
 site: voip-int.com
 owner: Earl Rusnak (Odoo side) · Robert Riley (nginx / TLS side)
-status: open — live audit done 2026-09-11; Search Console re-verified 2026-09-11; fixes staged, not applied
+status: open — nginx items live 2026-09-11 (Robert); next: robots change (Earl), Odoo 15 export, glossary pages
 created: 2026-09-10
 updated: 2026-09-11
 standing_page: https://claude.ai/code/artifact/fcaa979a-43d4-400e-9e8f-d2ca53ed4cd2
@@ -124,6 +124,19 @@ The Wayback Machine could not be reached from this environment (tunnel resets), 
 to come from the Odoo 15 database. **Do not decommission the Odoo 15 server (Robert's open item) until
 the ~55 legacy pages have been exported.**
 
+### Update 2026-09-11 (evening): Robert's nginx items are live, verified from outside
+
+- `https://www.voip-int.com/pricing` → 301 to the apex; cert SAN now covers www (expires Dec 10). Finding 2 closed.
+- `voip-int.us` apex 301s host-wide on 80 and 443. `www.voip-int.us` has no DNS record, so nothing to do there. Finding 3 closed.
+- `/shop` and everything under it answer `X-Robots-Tag: noindex` with the site-wide headers intact; unpublished
+  products return 404 with the header, so they will drop out of the index on their own.
+- Robert added a sitemap exclusion in `voip_seo` mirroring the robots Disallow list: sitemap.xml is down from
+  164 to 154 URLs and no longer lists `/shop`, `/slides*`, `/profile/*`, `/appointment`, `/calendar`,
+  `/website/info` or `/blog/our-blog-5*`. Finding 5 closed. **Keep him in step: any change to the robots
+  Disallow list must be mirrored in the `voip_seo` prefix list.**
+- Re-audit: **0 sitemap conflicts, 154 of 154 clean.** Remaining: the two glossary 404s (finding 1) and the
+  two `ROBOTS_BLOCK_HIDES_NOINDEX` rows (`/web/login`, `/shop`), which the robots change in step 4 clears.
+
 ### Evidence trail (from Gmail and Drive, kept for the record)
 
 | Date | Source | Fact |
@@ -138,6 +151,7 @@ the ~55 legacy pages have been exported.**
 | Sep 8 | Gmail · Search Console | August performance emails for healing-skin.com and acumedgroup.com. None for voip-int.com (none for July either). |
 | Sep 11 | Live audit | Findings 1–7 above. Full table in `tools/audit-2026-09-11.md`. |
 | Sep 11 | Search Console export (data to Sep 3) | Indexed 256 (94 of them robots-blocked), not indexed 1,580; indexed count down 77 since Jul 23. |
+| Sep 11 (pm) | Robert, verified live | www cert + 301, voip-int.us 301, X-Robots-Tag noindex on /shop, voip_seo sitemap exclusion (164 → 154 URLs). Re-audit: 0 sitemap conflicts. |
 | Sep 11 | Search Console drill-downs + Performance | 94 blocked-but-indexed = shop catalog + login; 81 404s = ~55 un-migrated Odoo 15 pages incl. the glossary; /call-retrieve still 15 clicks / 3,701 impressions while 404. |
 
 ## 2. Why a robots block is the wrong tool for pages Google already has
@@ -190,22 +204,15 @@ Both scripts are dry-run by default and back up before writing. They need `ODOO_
    (and the other legacy feature pages) from the Odoo 15 database before it is decommissioned; recreate
    the two glossary pages at the same URLs on website 5 and request indexing. (b) Run
    `python3 tools/voip_legacy_redirects.py` (dry run), then `--apply`, to 301 the other ~60 legacy URLs.
-3. **nginx and TLS (Robert) — before step 4, so `/shop` never goes crawlable without a noindex.**
-
-   ```nginx
-   location = /web/login { add_header X-Robots-Tag "noindex, nofollow" always; }   # already live
-   location ^~ /shop     { add_header X-Robots-Tag "noindex" always; }             # new
-   # add_header inside a location replaces inherited headers: re-declare site-wide ones there.
-   ```
-   Add `www.voip-int.com` to the certificate (`certbot --expand`), then 301 `www.voip-int.com` and
-   `voip-int.us` (all paths) to `https://voip-int.com$request_uri`.
-4. **Odoo side (Earl).** `python3 tools/voip_crawl_fix.py` (dry run), then `--apply`. It keeps every
+3. **nginx and TLS (Robert).** Done 2026-09-11: www cert + 301, voip-int.us 301, `X-Robots-Tag: noindex`
+   on `/shop`, and a `voip_seo` sitemap exclusion for the robots-blocked prefixes (sitemap 164 → 154).
+4. **Odoo side (Earl) — next.** `python3 tools/voip_crawl_fix.py --steps robots` (dry run), then `--apply`. It keeps every
    published page indexed except the thank-you page, and rewrites the custom robots block to the one in
    the script: same blocks as today minus `/web/login` and `/shop`, one merged group, explicit allows
    for GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot and Google-Extended.
-5. **Sitemap hygiene (Earl + Robert).** Delete the empty "our-blog-5" blog. Decide per module: eLearning
-   (`/slides`, `/profile`) and appointments (`/appointment`, `/calendar`) are either in use, in which case
-   `voip_seo` gets a sitemap exclusion for those prefixes, or unused and uninstalled.
+5. **Sitemap hygiene.** Done by Robert 2026-09-11 via the `voip_seo` exclusion (eLearning and appointments are
+   in use, so nothing was uninstalled). Still open: delete the empty "our-blog-5" blog record if it serves no
+   purpose, and check why Central Florida Telecom posts 16 and 47 return 404.
 6. **Re-audit.** `python3 tools/voip_crawl_audit.py --odoo --out audit-after.md --csv urls-after.csv`.
    Acceptance: zero rows under "Sitemap conflicts"; every rank-list page 200 / allowed / no noindex;
    `/web/login` and `/shop` allowed + noindex; legacy blog probe 301; `www` and `.us` 301 to the apex.

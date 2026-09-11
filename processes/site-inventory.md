@@ -18,5 +18,17 @@ Ahrefs crawl emails arrive forwarded from info@drrusnakwellness.com to itself wi
 `[voip-int] (Project name)`. Search Console emails come from sc-noreply@google.com.
 
 Live page fetches from the Claude cloud environment are currently blocked by the environment's network policy
-for all six domains. To enable title / description / H1 checks in the SEO review, allow these domains in the
-environment's network settings.
+for all six domains (environment "Default", trusted network access). To enable live checks, open claude.ai/code ›
+Environments › Default › Network access, choose custom allowed domains, and add:
+
+```
+voip-int.com  www.voip-int.com  voip-int.us  voip-int.co.uk
+healing-skin.com  www.healing-skin.com
+acumedgroup.com  www.acumedgroup.com
+drrusnakwellness.com  www.drrusnakwellness.com
+drrusnakacademy.com  www.drrusnakacademy.com
+3390oceanshore.com  www.3390oceanshore.com
+web.archive.org  archive.org
+```
+
+The policy is applied when a session starts, so sessions opened before the change keep the old policy.

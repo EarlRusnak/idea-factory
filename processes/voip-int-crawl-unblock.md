@@ -89,6 +89,41 @@ So of 256 indexed URLs, 94 are ones we do not want, which leaves about 162 wante
 against 164 in the sitemap. The indexing itself is close to right; the losses are the 94 stuck
 junk URLs and the pages that dropped since Jul 24 (the 404 and "crawled, not indexed" lists say which).
 
+### Search Console drill-downs and Performance export (2026-09-11)
+
+**"Indexed, though blocked by robots.txt" (94 URLs).** 92 are `/shop/*` product pages plus `/shop`,
+`/shop/page/4`, `/shop/cart`; the other one is `/web/login`. The count climbed 18 → 48 → 79 → 94 from Jul 10 to
+Aug 28 as Google kept re-finding catalog URLs it could not fetch. The whole bucket clears with one change:
+noindex on `/shop` (nginx) and the two Disallows removed (finding 6). Products that are unpublished will
+then 404 or redirect and drop out on their own.
+
+**"Not found (404)" (81 URLs).** About 55 are **Odoo 15 pages that were never migrated**: the old
+feature and benefit pages (`/call-waiting`, `/voicemail`, `/auto-attendant`, `/call-park`,
+`/full-feature-list`, `/crm-integrations`, `/pro-sip-trunking`, `/pro-mobile-voip`, `/teams-integrator`,
+`/knowledge` …) and the two glossary pages. Google was still crawling them through Sep 5. The rest are
+legacy blog-2 tag URLs from before the catch-all 301, two Central Florida Telecom posts (ids 16 and 47,
+now 404 — check whether they were unpublished), `/blog/our-blog-22`, and media junk.
+→ `tools/voip_legacy_redirects.py` maps 60 of them to the nearest Odoo 19 page (dry-run default).
+
+**"Crawled, currently not indexed" (101 URLs exported).** Legacy blog-2 (41), product images (24),
+`/shop/*` (24), a few module routes. No wanted page is in this bucket.
+
+**Performance, Jun 9 – Sep 8.** Clicks are flat-to-up: 18–28 a week in June and July, 30–37 a week in
+August. Impressions fell ~20% from Jul 27 because the junk URLs stopped earning them. Top pages by
+clicks: `/` 95, the Yealink-vs-Poly post 64, `/web/login` 27, the Mitel EOL post 35 across two URL
+variants, **`/call-retrieve` 15 clicks / 3,701 impressions / position 4.95 while returning 404**,
+`/pro-mobile` 9. Google is still serving a cached copy of the glossary page; the query family
+("call retrieved meaning" and 13 variants, ~2,400 impressions in 90 days, positions 2.5–9) will be lost
+the moment Google drops it. `/message-waiting-indicator-mwi` is the same story at 981 impressions.
+
+Decision to make: `/web/login` earns 27 clicks a quarter from "voip login" searches. The plan removes it
+from Google (noindex). Customers still reach the portal from the site header, so the plan stands; if you
+would rather keep the login page findable, drop the nginx header and the runbook line for it.
+
+The Wayback Machine could not be reached from this environment (tunnel resets), so the glossary text has
+to come from the Odoo 15 database. **Do not decommission the Odoo 15 server (Robert's open item) until
+the ~55 legacy pages have been exported.**
+
 ### Evidence trail (from Gmail and Drive, kept for the record)
 
 | Date | Source | Fact |
@@ -103,6 +138,7 @@ junk URLs and the pages that dropped since Jul 24 (the 404 and "crawled, not ind
 | Sep 8 | Gmail · Search Console | August performance emails for healing-skin.com and acumedgroup.com. None for voip-int.com (none for July either). |
 | Sep 11 | Live audit | Findings 1–7 above. Full table in `tools/audit-2026-09-11.md`. |
 | Sep 11 | Search Console export (data to Sep 3) | Indexed 256 (94 of them robots-blocked), not indexed 1,580; indexed count down 77 since Jul 23. |
+| Sep 11 | Search Console drill-downs + Performance | 94 blocked-but-indexed = shop catalog + login; 81 404s = ~55 un-migrated Odoo 15 pages incl. the glossary; /call-retrieve still 15 clicks / 3,701 impressions while 404. |
 
 ## 2. Why a robots block is the wrong tool for pages Google already has
 
@@ -150,9 +186,10 @@ Both scripts are dry-run by default and back up before writing. They need `ODOO_
    Tools re-import from Search Console (or add the site again) so Bing verification comes back. The
    Pages and Performance reports refill over the next few days; expect a fresh "Blocked by robots.txt"
    alert for the ten sitemap URLs in finding 5 until step 5 is done.
-2. **Glossary pages (Earl).** Find the two page records in Odoo (Website › Pages, search "retrieve" and
-   "mwi"): republish if unpublished, restore from the Jul backups if deleted, or create the glossary
-   hub and 301 the old URLs to it. Request indexing once they answer 200.
+2. **Legacy pages (Earl + Robert).** (a) Export `/call-retrieve` and `/message-waiting-indicator-mwi`
+   (and the other legacy feature pages) from the Odoo 15 database before it is decommissioned; recreate
+   the two glossary pages at the same URLs on website 5 and request indexing. (b) Run
+   `python3 tools/voip_legacy_redirects.py` (dry run), then `--apply`, to 301 the other ~60 legacy URLs.
 3. **nginx and TLS (Robert) — before step 4, so `/shop` never goes crawlable without a noindex.**
 
    ```nginx

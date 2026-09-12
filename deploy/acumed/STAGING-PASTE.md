@@ -66,3 +66,12 @@ cd /web/healing-skin-staging.instawp.site/public_html && wp theme list --status=
 Expected: `acumed`, `25`, `105`, `page`, five `200` lines, `location: https://healing-skin-staging.instawp.site/what-we-offer/`, `DONE-6`.
 
 Afterwards: review the site, tweak on staging, then migrate to GHL per Step 5 of `STAGING-RUNBOOK.md` (All-in-One WP Migration export → import on u88fdz4e3p.wpdns.site). Live acumedgroup.com is untouched by all of the above.
+
+## Result — deployed Sep 12, 2026 ~21:50 UTC (run from Claude Code cloud via `instawp exec 2488901 --api`)
+
+- Rollback point: InstaWP version **10205** `pre-acumed-2026-09-12` (`instawp versions restore 2488901 10205`).
+- Step 1 wipe: 269 items deleted, 0 left. Step 2: bundle sha256 matched, PHP lint clean. Step 3: theme `acumed` 0.1.3 active, title/tagline/permalinks set, logo curled from live.
+- Step 4: 105 posts imported, 104 attachments (the NAD+ IV post has no featured image on live either), 0 warnings. Step 5: 21 pages created + 4 legal pages, front = home #460, posts = blog #454, check table complete.
+- Step 6: 25 published pages, 105 posts, `show_on_front=page`; all sampled URLs 200; 301 map verified (glutathione → what-we-offer, b-12 → metabolic-support, shop → drrusnakwellness.com, hippa → hipaa).
+- Notes for API transport: the shell starts in `/home/wiluwumaba0429/web/healing-skin-staging.instawp.site/public_html` (not `/web/...`), and one command is capped at 300 s, so the post import ran under `nohup` with its log at `/tmp/acumed-import.log`.
+- Source follow-up in claude-projects: add `'iv-therapy'` to `$expected` in `acumed-site-rebuild/server/acumed-pages.php` (already done in the bundled copy).

@@ -16,14 +16,17 @@ facts, prices, dates, statistics, or credentials that are not here or in a cited
 - **Compliance firewall:** on Healing Skin, AcuMedGroup and the Academy she speaks as the clinician / Master
   Trainer. On Dr. Rusnak Wellness she is **founder and curator** — cosmetic claims only ("improves the look
   of", "supports", "helps skin feel"), no treatment / cure / drug claims. Products are OTC / cosmetic (MoCRA).
+- **Cross-brand linking (Earl, 2026-09-13):** link whatever is relevant with direct context among the four Rusnak
+  sites. voip-int.com is never linked to or from them.
 - **Local SEO distinctness:** Healing Skin, AcuMedGroup, the Academy and Wellness share 1107 Person St,
   Kissimmee, FL 34741 but keep separate NAP. Use each brand's own phone. Do not describe them as "the same
   clinic". Cross-links are fine; blended identity is not.
 - **VoIP International house rule:** never claim "zero fees" or "no taxes". Government surcharges are
   itemized on every invoice. The only one-time charge is number porting at $15 per number.
 - No emojis. No em-dashes in body copy (use commas, periods, or colons). No competitor named negatively.
-- Spanish: Kissimmee is a bilingual market, but no site currently states Spanish-speaking staff, so do not
-  claim it. (Open question for Earl.)
+- Spanish: confirmed by Earl 2026-09-13. Dr. Cecilia Rusnak and her entire clinical and training staff are
+  bilingual; "se habla español" may be stated on Healing Skin, AcuMedGroup, the Academy and Wellness. Earl is
+  not fluent, so every Spanish page gets a bilingual staff review before publishing (see bilingual-strategy-2026-09.md).
 
 ## Voice notes per site (from live posts)
 - **healing-skin.com** — second person, direct to the patient, clinical authority with warmth. Short emphatic

@@ -18,7 +18,7 @@ tags:
   - VoIP Insights
 author: Earl Rusnak
 target_publish_date: 2026-09-16
-word_count: 2172
+word_count: 1999
 status: draft
 ---
 
@@ -52,7 +52,7 @@ status: draft
       "name": "Can I avoid USF?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not legally, if your service carries interstate or international calls. Every interconnected VoIP provider contributes and passes the cost through. What you can do is ask how your provider calculates the interstate portion, because the safe-harbor and traffic-study methods can produce different amounts on the same bill."
+        "text": "Not legally, if your service carries interstate or international calls. Every interconnected VoIP provider contributes and passes the cost through. You can ask how your provider calculates the interstate portion; the safe-harbor and traffic-study methods can produce different amounts."
       }
     },
     {
@@ -60,7 +60,7 @@ status: draft
       "name": "Why did my E911 fee change?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Because a state or local government changed it. E911 fees are set by legislatures, utility commissions and county boards, not by providers, and they are revised periodically. If the change coincided with a move or a new location, the new address may simply carry a different rate."
+        "text": "Because a state or local government changed it. E911 fees are set by legislatures, utility commissions and county boards, not by providers, and they are revised periodically. If it coincided with a move, the new address may simply carry a different rate."
       }
     },
     {
@@ -68,7 +68,7 @@ status: draft
       "name": "Is a regulatory recovery fee a tax?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. It is a provider-set fee. It may recover real costs of complying with FCC and state rules, and ours does, but the provider chooses whether to charge it and how much. A tax is imposed by a government and remitted to it. When comparing providers, treat regulatory recovery as part of the base price."
+        "text": "No. It is a provider-set fee. It may recover real costs of complying with FCC and state rules, and ours does, but the provider chooses whether to charge it and how much. When comparing providers, treat regulatory recovery as part of the base price."
       }
     },
     {
@@ -92,7 +92,7 @@ status: draft
       "name": "Do fees change if I sign an annual term?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The government taxes and pass-throughs do not change in kind; they are calculated on your service charges and service address regardless of contract length. An annual term can lower the base rate modestly, and because most pass-throughs are a percentage of that base, those dollar amounts move with it. Our default is month-to-month with 30 days written notice; annual terms are optional."
+        "text": "The government taxes and pass-throughs are calculated on your service charges and service address regardless of contract length. An annual term can lower the base rate modestly, and because most pass-throughs are a percentage of that base, those dollar amounts move with it. Our default is month-to-month with 30 days written notice; annual terms are optional."
       }
     }
   ]
@@ -113,7 +113,7 @@ status: draft
 - External (new tab, rel="noopener"): FCC Understanding Your Telephone Bill, FCC Universal Service, USAC.
 
 **Facts for Earl to verify before publish**
-1. The illustrative example (10 seats x $29 = $290 base; surcharges roughly $43.50 to $72.50; total roughly $335 to $365) matches current pass-through math for a typical Florida address and at least one out-of-state address. If real invoices land outside 15 to 25 percent anywhere we serve, change the range here and on the FAQ together.
+1. The illustrative example (10 seats x $29 = $290 base; surcharges roughly $43.50 to $72.50; total roughly $333.50 to $362.50) matches current pass-through math for a typical Florida address and at least one out-of-state address. If real invoices land outside 15 to 25 percent anywhere we serve, change the range here and on the FAQ together.
 2. The pricing page still shows $17 per-minute and $29 unlimited at publish, and still uses the quoted line "No activation fee, no per-extension setup fee, and no contract."
 3. The FAQ still says "typically 15-25% of the base service fee depending on your service location" and "itemized on every invoice", and still lists "FCC cost recovery, Federal USF, 911, and state & local communications taxes."
 4. The native E911 description (registered extension address delivered to the dispatch center) matches how the platform actually routes 911. Adjust if we use a different delivery method.
@@ -128,41 +128,41 @@ status: draft
 
 The quote said $17 a seat. The invoice said more. If that describes your last phone bill, this is the explanation nobody gave you at signing.
 
-I read a lot of competitor invoices. Prospects forward them and ask what they are actually paying for, and the pattern rarely changes: the base rate was accurate, and the rest of the page was never explained. VoIP taxes and fees are real. Most are set by governments, not by your provider. A few are set by the provider and named so they look like the government's idea. Here is what each line is, who sets it, and how to tell an honest invoice from a padded one.
+I read a lot of competitor invoices, usually because a prospect forwarded one and asked what they were paying for. The pattern rarely changes: the base rate was accurate, and the rest of the page was never explained. VoIP taxes and fees are real. Most are set by governments, not by your provider. A few are set by the provider and named so they look like the government's idea. Here is what each line is, who sets it, and how to tell an honest invoice from a padded one.
 
 ## The three kinds of charges on every phone bill
 
-Any business phone bill explained properly comes down to three buckets. Sort each line into the right one and the bill stops being mysterious.
+Any business phone bill explained properly comes down to three buckets.
 
 | Bucket | Who sets the amount | Typical line items | Can a provider waive it? |
 |---|---|---|---|
-| Government taxes | Federal, state, county and city governments | State communications services tax, local utility or telecom taxes, sales tax where it applies | No |
-| Government-mandated pass-throughs | A government program sets the rate or the requirement; the provider collects it | Federal USF, E911 or 911 surcharge, state TRS | No, although the dollar amount depends on how the provider calculates it |
+| Government taxes | Federal, state, county, city | State communications services tax, local telecom taxes, sales tax where it applies | No |
+| Government-mandated pass-throughs | Government sets the rate or requirement; the provider collects it | Federal USF, E911 or 911 surcharge, state TRS | No, though the amount depends on the provider's calculation |
 | Provider-set fees | The provider | Regulatory recovery fee, cost recovery, "administrative" or "network access" fees | Yes. These are business decisions |
 
-The first two buckets appear on every carrier's bill, ours included. The third is where invoices diverge, and it is the one to read closely. Most confusion about VoIP taxes and fees comes from treating all three as one thing.
+The first two appear on every carrier's bill, ours included. The third is where invoices diverge. Most confusion about VoIP taxes and fees comes from treating all three as one thing.
 
 ## Federal Universal Service Fund (USF)
 
-Of all the VoIP taxes and fees on a bill, the USF fee on a phone bill is usually the largest single pass-through, so it gets the most explanation. It funds four federal programs: connectivity in rural and high-cost areas, Lifeline for low-income households, E-Rate for schools and libraries, and the Rural Health Care program. The FCC oversees the fund and the Universal Service Administrative Company (USAC) collects and disburses it. The FCC's [Universal Service page](https://www.fcc.gov/general/universal-service) and [USAC](https://www.usac.org/) explain the programs in detail.
+Of all the VoIP taxes and fees on a bill, the USF fee on a phone bill is usually the largest single pass-through. It funds four federal programs: connectivity in rural and high-cost areas, Lifeline for low-income households, E-Rate for schools and libraries, and the Rural Health Care program. The FCC oversees the fund and the Universal Service Administrative Company (USAC) collects and disburses it. The FCC's [Universal Service page](https://www.fcc.gov/general/universal-service) and [USAC](https://www.usac.org/) explain the programs in detail.
 
-Carriers contribute a percentage of their interstate and international telecommunications revenue. That percentage is the contribution factor. The FCC resets it every quarter based on projected program demand against projected contributor revenue, and it has run above 30 percent in recent years. When your USF line changes on a January, April, July or October invoice, that is why. The factor moved, not your provider's margin.
+Carriers contribute a percentage of their interstate and international telecommunications revenue. That percentage is the contribution factor. The FCC resets it every quarter based on projected program demand against projected contributor revenue, and it has run above 30 percent in recent years. When your USF line changes on a January, April, July or October invoice, the factor moved, not your provider's margin.
 
-Two details matter for VoIP. The factor applies only to the interstate and international portion of your charges, not the whole bill, and the provider has to determine what that portion is. The FCC allows two approaches: a safe-harbor percentage it publishes for interconnected VoIP, or a traffic study that measures the provider's actual interstate share. Either way, the USF line should be the factor multiplied by the interstate portion, not by your full base rate. If a provider applies the factor to 100 percent of the bill, ask why.
+Two details matter for VoIP. The factor applies only to the interstate and international portion of your charges, not the whole bill, and the provider has to determine what that portion is. The FCC allows two approaches: a safe-harbor percentage it publishes for interconnected VoIP, or a traffic study that measures the provider's actual interstate share. Either way, the USF line should be the factor applied to the interstate portion, not the full base rate. If a provider applies it to 100 percent of the bill, ask why.
 
 ## E911 and 911 surcharges
 
-The E911 fee is the cleanest example of a government pass-through. State and local governments set it, usually as a flat monthly amount per line or seat, and it funds public safety answering points, the dispatch centers that answer 911 calls. Because it is set locally, two customers in different counties see different E911 amounts for identical service, and the amount changes when a legislature or county commission votes to change it. The FCC's consumer guide, [Understanding Your Telephone Bill](https://www.fcc.gov/consumers/guides/understanding-your-telephone-bill), covers this line and the other common ones.
+The E911 fee is the cleanest example of a government pass-through. State and local governments set it, usually as a flat monthly amount per line or seat, and it funds public safety answering points, the dispatch centers that answer 911 calls. Because it is set locally, two customers in different counties see different amounts for identical service, and the amount changes when a legislature or county commission votes. The FCC's consumer guide, [Understanding Your Telephone Bill](https://www.fcc.gov/consumers/guides/understanding-your-telephone-bill), covers this line and the other common ones.
 
-We support native E911 on every seat: the address registered to your extension is delivered to the dispatch center when someone dials 911 from that phone, instead of routing through a generic intake center first. That is what the surcharge pays for, and it is why we ask you to keep registered addresses current when a phone moves.
+We support native E911 on every seat: the address registered to your extension is delivered to the dispatch center when someone dials 911 from that phone, instead of routing through a generic intake center first. That is what the surcharge pays for, which is why we ask you to keep registered addresses current.
 
 ## State and local communications taxes and TRS
 
-This bucket is why two businesses on the same plan get different totals. States tax communications services in different ways: a dedicated communications services tax, general sales tax, or gross receipts taxes on the carrier that get passed along. Counties and cities often add their own. The rate is determined by your service address, which is why we ask for it before quoting and why a company with one office in Ocoee and another out of state sees two different tax lines on one invoice.
+This bucket is why two businesses on the same plan get different totals. States tax communications services in different ways: a dedicated communications services tax, general sales tax, or gross receipts taxes on the carrier that get passed along. Counties and cities often add their own. The rate is determined by your service address, which is why we ask for it before quoting, and why a company with offices in two states sees two different tax lines on one invoice.
 
 State TRS (Telecommunications Relay Service) surcharges fund relay services for people who are deaf, hard of hearing or speech-disabled. They are typically small per-line charges set by each state.
 
-None of these VoIP surcharges are within a provider's control. What is within our control is showing them separately, with their real names, so you can match each one to the jurisdiction that imposed it.
+None of these VoIP surcharges are within a provider's control. Showing them separately, with their real names, so you can match each to the jurisdiction that imposed it, is.
 
 ## FCC regulatory fees and cost recovery
 
@@ -170,27 +170,27 @@ The FCC charges licensed carriers annual regulatory fees to fund its operations.
 
 Here is the honest part. That recovery line is set by us. The FCC does not require us to charge it or tell us how much. It recovers a real compliance cost and we label it as such, but by the classification above it belongs in bucket three, not bucket two. The same goes for any line called "regulatory recovery fee", "compliance fee" or "cost recovery" on any invoice. Those fees are lawful and often legitimate. They are not taxes, and a provider that calls them government-mandated is being imprecise at best.
 
-It gets murkier when a line has no traceable purpose at all. "Administrative fee", "network access fee" and "service assurance fee" are labels I have seen on forwarded invoices that recover nothing in particular. They are price increases with a formal name. Count them as part of the base rate when you compare quotes, because that is what they are.
+It gets murkier when a line has no traceable purpose at all. "Administrative fee", "network access fee" and "service assurance fee" are labels I have seen on forwarded invoices that recover nothing in particular. They are price increases with a formal name, and you should count them as base rate when you compare quotes.
 
 ## Why "no hidden fees" is not the same as "no fees"
 
 We say no hidden fees. We do not say no fees, and you should be suspicious of any provider who does, because the first two buckets are not optional for anyone.
 
-Here is what our [pricing page](https://voip-int.com/pricing) commits to: "No activation fee, no per-extension setup fee, and no contract." Government surcharges, in the words of our [FAQ](https://voip-int.com/faq), are "itemized on every invoice" and include "FCC cost recovery, Federal USF, 911, and state & local communications taxes." Across our customer base those VoIP taxes and fees run "typically 15-25% of the base service fee depending on your service location." The one exception to the no-one-time-charges rule is number porting: "$15 per number, in or out", which the pricing page calls "the only one-time charge we bill." Porting your numbers away from any carrier, including us, is your right under FCC rules, and we charge the same $15 in both directions so there is no exit penalty in the fine print.
+Here is what our [pricing page](https://voip-int.com/pricing) commits to: "No activation fee, no per-extension setup fee, and no contract." Government surcharges, in the words of our [FAQ](https://voip-int.com/faq), are "itemized on every invoice" and include "FCC cost recovery, Federal USF, 911, and state & local communications taxes." Those VoIP taxes and fees run "typically 15-25% of the base service fee depending on your service location." The one exception to the no-one-time-charges rule is number porting: "$15 per number, in or out", which the pricing page calls "the only one-time charge we bill." Porting your numbers away from any carrier, including us, is your right under FCC rules, and we charge the same $15 in both directions so there is no exit penalty in the fine print.
 
-That is the whole fee story. The base rate on the [phone service page](https://voip-int.com/phone-service) is the base rate, the government lines are labeled by jurisdiction, and porting is the only one-time item.
+That is the whole fee story: the base rate on the [phone service page](https://voip-int.com/phone-service) is the base rate, the government lines are labeled by jurisdiction, and porting is the only one-time item.
 
 ## How to read your current invoice in five minutes
 
 Pull up your most recent bill. This works on any provider's invoice, and it turns VoIP taxes and fees from a lump sum into a list you can argue with.
 
 1. **Separate base from surcharges.** Add up every recurring line for the service itself: seats, add-ons, minutes, equipment. That is your base.
-2. **Compute the percentage.** Add up everything else and divide by the base. Under 15 percent, your location is on the light end. Over 30 percent, keep going, because something other than government is probably in there.
+2. **Compute the percentage.** Add up everything else and divide by the base. Over 30 percent, keep going; something other than government is probably in there.
 3. **Find the provider-set fees.** Anything labeled recovery, administrative, compliance, network access or assurance is set by the provider. Add those to the base. That is the real per-seat price.
-4. **Check the term.** Look for auto-renewal language, the notice window to cancel, and any early termination fee. Month-to-month with 30 days written notice is the least restrictive version.
-5. **Check the porting language.** Confirm you can port your numbers out, what it costs, and how long it takes. Porting is your right under FCC rules; the fee and timeline are what vary.
+4. **Check the term.** Look for auto-renewal language, the notice window to cancel, and any early termination fee.
+5. **Check the porting language.** Confirm you can port your numbers out, what it costs, and how long it takes.
 
-If the invoice lumps everything into a single "Taxes and surcharges" line and you cannot complete steps one through three, that is a finding in itself. Ask for the breakdown. An operator who runs the switch has it.
+If the invoice lumps everything into one "Taxes and surcharges" line, that is a finding in itself. Ask for the breakdown. An operator who runs the switch has it.
 
 ## What VoIP taxes and fees look like on a VoIP International invoice
 
@@ -199,27 +199,27 @@ An illustrative example, not a quote: a ten-person office on the $29 unlimited U
 | Line | Amount |
 |---|---|
 | 10 seats, unlimited plan, $29 each | $290.00 |
-| Federal USF (contribution factor applied to the interstate portion) | itemized |
+| Federal USF (applied to the interstate portion) | itemized |
 | E911 surcharge (per seat, set by your state or county) | itemized |
 | State and local communications taxes and TRS | itemized |
 | FCC cost recovery | itemized |
 | Government taxes and pass-throughs, combined | roughly $43.50 to $72.50 |
 | Estimated monthly total | roughly $333.50 to $362.50 |
 
-The spread depends almost entirely on the service address. A state with a heavy communications services tax lands near the top of the range; light state and local taxes land near the bottom. The base rate does not move. What you will not see: an activation fee, a per-extension setup fee, or a line with a vague name and no jurisdiction behind it.
+The spread depends almost entirely on the service address; the base rate does not move. What you will not see: an activation fee, a per-extension setup fee, or a line with a vague name and no jurisdiction behind it.
 
 For what that total replaces, our [cost-benefit analysis of VoIP for small businesses](https://voip-int.com/blog/voip-international-blog-posts-4/cost-benefit-analysis-voip-for-small-businesses-97) walks through the math against a legacy system. If you are still on a [Mitel platform that has passed end of life](https://voip-int.com/blog/voip-international-blog-posts-4/mitel-micloud-connect-and-mivoice-office-250-both-eol-deadlines-have-passed-here-s-where-that-leaves-you-271), the invoice above is what you would be moving to.
 
 ## Frequently asked questions
 
 **Can I avoid USF?**
-Not legally, if your service carries interstate or international calls. Every interconnected VoIP provider contributes and passes the cost through. What you can do is ask how your provider calculates the interstate portion, because the safe-harbor and traffic-study methods can produce different amounts on the same bill.
+Not legally, if your service carries interstate or international calls. Every interconnected VoIP provider contributes and passes the cost through. You can ask how your provider calculates the interstate portion; the safe-harbor and traffic-study methods can produce different amounts.
 
 **Why did my E911 fee change?**
-Because a state or local government changed it. E911 fees are set by legislatures, utility commissions and county boards, not by providers, and they are revised periodically. If the change coincided with a move or a new location, the new address may simply carry a different rate.
+Because a state or local government changed it. E911 fees are set by legislatures, utility commissions and county boards, not by providers, and they are revised periodically. If it coincided with a move, the new address may simply carry a different rate.
 
 **Is a regulatory recovery fee a tax?**
-No. It is a provider-set fee. It may recover real costs of complying with FCC and state rules, and ours does, but the provider chooses whether to charge it and how much. A tax is imposed by a government and remitted to it. When comparing providers, treat regulatory recovery as part of the base price.
+No. It is a provider-set fee. It may recover real costs of complying with FCC and state rules, and ours does, but the provider chooses whether to charge it and how much. When comparing providers, treat regulatory recovery as part of the base price.
 
 **Are fees different on Pro Mobile or SIP trunking?**
 Yes, in structure. [Pro Mobile](https://voip-int.com/pro-mobile) lines run on wireless networks and carry the wireless-specific surcharges governments apply to mobile service, so the mix differs from a desk seat. [SIP trunking](https://voip-int.com/sip-trunking) is billed per channel with metered usage, so the taxable base moves with call volume, but the same categories of government pass-throughs apply. In every case they are itemized.
@@ -228,7 +228,7 @@ Yes, in structure. [Pro Mobile](https://voip-int.com/pro-mobile) lines run on wi
 Yes: $15 per number, in or out. It is the only one-time charge we bill. Ports typically take 5 to 15 business days per number depending on the losing carrier. There is no activation fee and no per-extension setup fee.
 
 **Do fees change if I sign an annual term?**
-The government taxes and pass-throughs do not change in kind; they are calculated on your service charges and service address regardless of contract length. An annual term can lower the base rate modestly, and because most pass-throughs are a percentage of that base, those dollar amounts move with it. Our default is month-to-month with 30 days written notice; annual terms are optional.
+The government taxes and pass-throughs are calculated on your service charges and service address regardless of contract length. An annual term can lower the base rate modestly, and because most pass-throughs are a percentage of that base, those dollar amounts move with it. Our default is month-to-month with 30 days written notice; annual terms are optional.
 
 ## Want a real number for your locations?
 

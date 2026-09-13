@@ -20,3 +20,6 @@ The `.jpg` files are the embedded photos. `canvas.json` lays the three out side 
 Fonts: Montserrat (headlines and body) and Cormorant Garamond (logo placeholder text), both from
 Google Fonts. Tweaks above each artboard: one accent color on the two white banners, background
 and accent color on the dark one.
+
+Print exports (33 x 66 in PDFs, vector text with Montserrat and Cormorant Garamond embedded) are in
+`export/`. Drive copy: **Dr Rusnak Academy Paramedical Docs / Banners** (folder id `1cWr7AanKqh3EMJB_Lrhh-Iyrv_fvpocJ`).

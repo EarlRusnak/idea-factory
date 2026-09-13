@@ -19,6 +19,11 @@ tags:
 author: Earl Rusnak
 target_publish_date: 2026-09-16
 word_count: 2050
+featured_image: images/09-voip-featured.png
+featured_alt: "Small-business owner reviewing a monthly phone invoice next to a VoIP desk phone"
+inline_image: images/10-voip-bill-buckets.png
+inline_alt: "What is on your business phone bill: government taxes, government pass-throughs such as Federal USF, E911 and state TRS, carrier-level FCC regulatory fee recovery, and provider-set fees. Typically 15 to 25 percent above the base rate depending on location."
+inline_after_h2: "The three kinds of charges on every phone bill"
 status: draft
 ---
 

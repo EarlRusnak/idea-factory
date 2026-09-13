@@ -7,7 +7,7 @@ status: proposal
 ---
 # Bilingual (English / Spanish) web and blog strategy, Rusnak ecosystem
 
-Scope: healing-skin.com, acumedgroup.com, drrusnakacademy.com (WordPress) and drrusnakwellness.com (Shopify Basic). voip-int.com is national B2B on Odoo and is out of scope for Spanish. Facts about the sites come from `blog-drafts/2026-09/_brief-and-facts.md`; tool facts were checked live on 2026-09-13 (sources at the end). Note: the brief's line "no site currently states Spanish-speaking staff, so do not claim it" is superseded by this proposal once Earl confirms Phase 0.
+Scope: healing-skin.com, acumedgroup.com, drrusnakacademy.com (WordPress) and drrusnakwellness.com (Shopify Basic). voip-int.com is national B2B on Odoo and is out of scope for Spanish. Facts about the sites come from `brand-facts.md`; tool facts were checked live on 2026-09-13 (sources at the end). Note: the brief's line "no site currently states Spanish-speaking staff, so do not claim it" is superseded by this proposal once Earl confirms Phase 0.
 
 ## 1. Recommendation in five lines
 

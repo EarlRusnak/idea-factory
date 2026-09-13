@@ -3,7 +3,7 @@ type: reference
 area: content
 updated: 2026-09-13
 ---
-# September 2026 blog round — shared brief and verified facts
+# Brand facts and house rules (standing reference for every blog round)
 
 Every fact below was pulled live on 2026-09-13 from the sites, Shopify, Search Console emails, or Drive
 docs (Healing Skin Blog Gap Analysis 2026-05-08, Blog Consolidation Map, Dr. Cecilia Personal Brand House

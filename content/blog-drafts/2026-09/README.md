@@ -10,7 +10,7 @@ status: approved by Earl 2026-09-13; publishing in progress
 
 Five posts, one per brand, chosen from the Search Console signals, the May 2026 Healing Skin gap analysis,
 the July 2026 VoIP SEO audit, and the Brand House hub-and-spoke rules. Shared facts and house rules live in
-[_brief-and-facts.md](_brief-and-facts.md). Each post file carries its own front matter, publishing notes,
+[../../brand-facts.md](../../brand-facts.md). Each post file carries its own front matter, publishing notes,
 schema block, and body.
 
 | Order | Site | Post | Why now | Focus keyword |

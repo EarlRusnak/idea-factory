@@ -28,6 +28,11 @@ author: AcuMedGroup Wellness Center
 medically_reviewed_by: "Dr. Cecilia Rusnak, LME, AP, DAc"
 target_publish_date: 2026-09-17
 word_count: 1957
+featured_image: images/03-acumed-featured.png
+featured_alt: "Patient resting comfortably during a first acupuncture appointment at AcuMedGroup in Kissimmee, FL"
+inline_image: images/04-acumed-checklist.png
+inline_alt: "Checklist for your first acupuncture appointment: eat a light meal, go easy on caffeine and skip alcohol, bring your medication list, wear loose clothing, arrive a few minutes early. Se habla español."
+inline_after_h2: "Before Your First Acupuncture Appointment: How to Prepare"
 status: draft
 ---
 

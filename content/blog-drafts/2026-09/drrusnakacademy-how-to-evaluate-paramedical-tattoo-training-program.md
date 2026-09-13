@@ -24,6 +24,11 @@ tags:
 author: Dr. Rusnak Academy
 target_publish_date: 2026-09-19
 word_count: 2132
+featured_image: images/07-academy-featured.png
+featured_alt: "Master trainer supervising a student practicing paramedical tattooing on a live model during Academy training"
+inline_image: images/08-academy-eight-questions.png
+inline_alt: "Eight questions to ask any paramedical tattoo training program: who teaches, live models, when not to treat, OSHA bloodborne standard, state FDA and HIPAA coverage, what happens after day three, is the business taught, what the credential attests."
+inline_after_h2: "Why the Choice of Paramedical Tattoo Training Program Matters More Than in Cosmetic Tattooing"
 status: draft
 ---
 

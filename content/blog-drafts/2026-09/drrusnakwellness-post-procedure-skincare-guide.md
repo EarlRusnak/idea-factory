@@ -22,6 +22,11 @@ tags:
 author: "Dr. Cecilia Rusnak, LME, AP, DAc"
 target_publish_date: 2026-09-18
 word_count: 1761
+featured_image: images/05-wellness-featured.png
+featured_alt: "Micellar water, facial oil and mineral sunscreen on a marble shelf, a simple post-procedure skincare routine"
+inline_image: images/06-wellness-three-steps.png
+inline_alt: "Post-procedure skincare in three steps: cleanse without rinsing, comfort and hydrate, protect with mineral SPF. Pause retinol, acids, vitamin C, scrubs and fragrance for now."
+inline_after_h2: "A Simple Three-Step Post-Procedure Routine"
 status: draft
 ---
 

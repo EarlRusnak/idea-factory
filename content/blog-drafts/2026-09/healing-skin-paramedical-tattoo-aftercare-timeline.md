@@ -10,7 +10,7 @@ secondary_keywords:
   - stretch mark camouflage healing
   - 3D areola tattoo aftercare
   - paramedical tattoo healing stages
-category_suggestions:
+categories:
   - Aftercare
   - Scar Camouflage
   - Stretch Mark Camouflage
@@ -29,6 +29,11 @@ author: "Dr. Cecilia Rusnak, LME, AP, DAc"
 reviewed_by: "Dr. Cecilia Rusnak, LME, AP, DAc (clinical review pending); Earl Rusnak (publishing review)"
 target_publish_date: 2026-09-16
 word_count: 2493
+featured_image: images/01-healing-skin-featured.png
+featured_alt: "Hands applying a thin layer of silicone gel to a healed lower-abdomen scar during paramedical tattoo aftercare"
+inline_image: images/02-healing-skin-timeline.png
+inline_alt: "Paramedical tattoo healing timeline: Day 1 protected, Days 2 to 7 looks too dark, Week 2 flaking and ghosting, Weeks 3 to 6 true color settles. Dry, shaded, hands off."
+inline_after_h2: "Why Paramedical Tattoo Aftercare Decides Your Final Result"
 status: draft
 ---
 

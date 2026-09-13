@@ -1,0 +1,11 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "title": "Treatment", "x": 0, "y": 0, "w": 800, "h": 1600, "print": "fixed" },
+    { "file": "Concerns.dc.html", "title": "Concerns", "x": 920, "y": 0, "w": 800, "h": 1600, "print": "fixed" },
+    { "file": "CoBrand.dc.html", "title": "Co-Brand", "x": 1840, "y": 0, "w": 800, "h": 1600, "print": "fixed" }
+  ],
+  "annotations": [
+    { "id": "how-to-use", "x": 0, "y": -260, "w": 760, "text": "HOW TO USE THESE BANNERS\n\nClick any text to retype it in place. The dashed boxes mark where your logo goes and the gray blocks mark where your photos go. Each banner is a 1:2 roll-up (for example 33 x 66 in or 30 x 60 in). Export PNG or PDF from the toolbar when you are ready to send it to your printer." }
+  ],
+  "launch": { "view": "canvas" }
+}

@@ -13,9 +13,9 @@ Dr. Rusnak's own ISR demonstration photo from Drive.
 | --- | --- | --- |
 | Treatment | `Main.dc.html` | Faded hero photo + logo, "Scar and stretch mark treatment" headline, before/after photos, tagline |
 | Concerns | `Concerns.dc.html` | "Targeted solution for skin imperfections", three photos, list of concerns, full-bleed treatment photo with logo |
-| Co-Brand | `CoBrand.dc.html` | Dark banner with the student's logo, a plus sign, and a partner logo slot |
+| Co-Brand | `CoBrand.dc.html` | Dark banner with the Dr Rusnak Academy logo, a plus sign, and the student's logo slot, over a faint leaf monogram watermark |
 
-The `.jpg` files are the embedded photos. `canvas.json` lays the three out side by side and holds the how-to-use note shown on the canvas.
+The `.jpg` files are the embedded photos; `academy-logo.png` (from the Trainer Standards PDF) and `leaf-mark.png` (from the Dr Rusnak Wellness brand board) are the Academy artwork. `canvas.json` lays the three out side by side and holds the how-to-use note shown on the canvas.
 
 Fonts: Montserrat (headlines and body) and Cormorant Garamond (logo placeholder text), both from
 Google Fonts. Tweaks above each artboard: one accent color on the two white banners, background

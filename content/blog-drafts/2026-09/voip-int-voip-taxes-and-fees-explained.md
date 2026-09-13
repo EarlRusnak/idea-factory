@@ -18,7 +18,7 @@ tags:
   - VoIP Insights
 author: Earl Rusnak
 target_publish_date: 2026-09-16
-word_count: 1999
+word_count: 1951
 status: draft
 ---
 
@@ -76,7 +76,7 @@ status: draft
       "name": "Are fees different on Pro Mobile or SIP trunking?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, in structure. Pro Mobile lines run on wireless networks and carry the wireless-specific surcharges governments apply to mobile service, so the mix differs from a desk seat. SIP trunking is billed per channel with metered usage, so the taxable base moves with call volume, but the same categories of government pass-throughs apply. In every case they are itemized."
+        "text": "Yes, in structure. Pro Mobile lines run on wireless networks and carry the wireless-specific surcharges governments apply to mobile service. SIP trunking is billed per channel with metered usage, so the taxable base moves with call volume, but the same categories of government pass-throughs apply. In every case they are itemized."
       }
     },
     {
@@ -84,7 +84,7 @@ status: draft
       "name": "Do you charge for porting?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes: $15 per number, in or out. It is the only one-time charge we bill. Ports typically take 5 to 15 business days per number depending on the losing carrier. There is no activation fee and no per-extension setup fee."
+        "text": "Yes: $15 per number, in or out. It is the only one-time charge we bill. Ports typically take 5 to 15 business days per number depending on the losing carrier."
       }
     },
     {
@@ -144,9 +144,9 @@ The first two appear on every carrier's bill, ours included. The third is where 
 
 ## Federal Universal Service Fund (USF)
 
-Of all the VoIP taxes and fees on a bill, the USF fee on a phone bill is usually the largest single pass-through. It funds four federal programs: connectivity in rural and high-cost areas, Lifeline for low-income households, E-Rate for schools and libraries, and the Rural Health Care program. The FCC oversees the fund and the Universal Service Administrative Company (USAC) collects and disburses it. The FCC's [Universal Service page](https://www.fcc.gov/general/universal-service) and [USAC](https://www.usac.org/) explain the programs in detail.
+The USF fee on a phone bill is usually the largest single item among VoIP taxes and fees. It funds four federal programs: connectivity in rural and high-cost areas, Lifeline for low-income households, E-Rate for schools and libraries, and the Rural Health Care program. The FCC oversees the fund and the Universal Service Administrative Company (USAC) collects and disburses it. The FCC's [Universal Service page](https://www.fcc.gov/general/universal-service) and [USAC](https://www.usac.org/) explain the programs in detail.
 
-Carriers contribute a percentage of their interstate and international telecommunications revenue. That percentage is the contribution factor. The FCC resets it every quarter based on projected program demand against projected contributor revenue, and it has run above 30 percent in recent years. When your USF line changes on a January, April, July or October invoice, the factor moved, not your provider's margin.
+Carriers contribute a percentage of their interstate and international telecommunications revenue. That percentage is the contribution factor. The FCC resets it every quarter based on projected program demand and contributor revenue, and it has run above 30 percent in recent years. When your USF line changes on a January, April, July or October invoice, the factor moved, not your provider's margin.
 
 Two details matter for VoIP. The factor applies only to the interstate and international portion of your charges, not the whole bill, and the provider has to determine what that portion is. The FCC allows two approaches: a safe-harbor percentage it publishes for interconnected VoIP, or a traffic study that measures the provider's actual interstate share. Either way, the USF line should be the factor applied to the interstate portion, not the full base rate. If a provider applies it to 100 percent of the bill, ask why.
 
@@ -154,7 +154,7 @@ Two details matter for VoIP. The factor applies only to the interstate and inter
 
 The E911 fee is the cleanest example of a government pass-through. State and local governments set it, usually as a flat monthly amount per line or seat, and it funds public safety answering points, the dispatch centers that answer 911 calls. Because it is set locally, two customers in different counties see different amounts for identical service, and the amount changes when a legislature or county commission votes. The FCC's consumer guide, [Understanding Your Telephone Bill](https://www.fcc.gov/consumers/guides/understanding-your-telephone-bill), covers this line and the other common ones.
 
-We support native E911 on every seat: the address registered to your extension is delivered to the dispatch center when someone dials 911 from that phone, instead of routing through a generic intake center first. That is what the surcharge pays for, which is why we ask you to keep registered addresses current.
+We support native E911 on every seat: the address registered to your extension is delivered to the dispatch center when someone dials 911 from that phone. That is what the surcharge pays for, which is why we ask you to keep registered addresses current.
 
 ## State and local communications taxes and TRS
 
@@ -168,7 +168,7 @@ None of these VoIP surcharges are within a provider's control. Showing them sepa
 
 The FCC charges licensed carriers annual regulatory fees to fund its operations. We hold our own licenses as a [licensed telecommunications operator](https://voip-int.com/about), so we pay those fees directly and recover them through an itemized FCC cost recovery line.
 
-Here is the honest part. That recovery line is set by us. The FCC does not require us to charge it or tell us how much. It recovers a real compliance cost and we label it as such, but by the classification above it belongs in bucket three, not bucket two. The same goes for any line called "regulatory recovery fee", "compliance fee" or "cost recovery" on any invoice. Those fees are lawful and often legitimate. They are not taxes, and a provider that calls them government-mandated is being imprecise at best.
+Here is the honest part: that recovery line is set by us. The FCC does not require it or set the amount. It recovers a real compliance cost, but by the classification above it belongs in bucket three, not two. The same goes for any line called "regulatory recovery fee", "compliance fee" or "cost recovery" on any invoice. Those fees are lawful and often legitimate. They are not taxes, and a provider that calls them government-mandated is being imprecise at best.
 
 It gets murkier when a line has no traceable purpose at all. "Administrative fee", "network access fee" and "service assurance fee" are labels I have seen on forwarded invoices that recover nothing in particular. They are price increases with a formal name, and you should count them as base rate when you compare quotes.
 
@@ -176,7 +176,7 @@ It gets murkier when a line has no traceable purpose at all. "Administrative fee
 
 We say no hidden fees. We do not say no fees, and you should be suspicious of any provider who does, because the first two buckets are not optional for anyone.
 
-Here is what our [pricing page](https://voip-int.com/pricing) commits to: "No activation fee, no per-extension setup fee, and no contract." Government surcharges, in the words of our [FAQ](https://voip-int.com/faq), are "itemized on every invoice" and include "FCC cost recovery, Federal USF, 911, and state & local communications taxes." Those VoIP taxes and fees run "typically 15-25% of the base service fee depending on your service location." The one exception to the no-one-time-charges rule is number porting: "$15 per number, in or out", which the pricing page calls "the only one-time charge we bill." Porting your numbers away from any carrier, including us, is your right under FCC rules, and we charge the same $15 in both directions so there is no exit penalty in the fine print.
+Here is what our [pricing page](https://voip-int.com/pricing) commits to: "No activation fee, no per-extension setup fee, and no contract." Government surcharges, in the words of our [FAQ](https://voip-int.com/faq), are "itemized on every invoice" and include "FCC cost recovery, Federal USF, 911, and state & local communications taxes." Those VoIP taxes and fees run "typically 15-25% of the base service fee depending on your service location." The one exception to the no-one-time-charges rule is number porting: "$15 per number, in or out", which the pricing page calls "the only one-time charge we bill." Porting your numbers away from any carrier, including us, is your right under FCC rules, and the $15 is the same in both directions, so there is no exit penalty.
 
 That is the whole fee story: the base rate on the [phone service page](https://voip-int.com/phone-service) is the base rate, the government lines are labeled by jurisdiction, and porting is the only one-time item.
 
@@ -222,10 +222,10 @@ Because a state or local government changed it. E911 fees are set by legislature
 No. It is a provider-set fee. It may recover real costs of complying with FCC and state rules, and ours does, but the provider chooses whether to charge it and how much. When comparing providers, treat regulatory recovery as part of the base price.
 
 **Are fees different on Pro Mobile or SIP trunking?**
-Yes, in structure. [Pro Mobile](https://voip-int.com/pro-mobile) lines run on wireless networks and carry the wireless-specific surcharges governments apply to mobile service, so the mix differs from a desk seat. [SIP trunking](https://voip-int.com/sip-trunking) is billed per channel with metered usage, so the taxable base moves with call volume, but the same categories of government pass-throughs apply. In every case they are itemized.
+Yes, in structure. [Pro Mobile](https://voip-int.com/pro-mobile) lines run on wireless networks and carry the wireless-specific surcharges governments apply to mobile service. [SIP trunking](https://voip-int.com/sip-trunking) is billed per channel with metered usage, so the taxable base moves with call volume, but the same categories of government pass-throughs apply. In every case they are itemized.
 
 **Do you charge for porting?**
-Yes: $15 per number, in or out. It is the only one-time charge we bill. Ports typically take 5 to 15 business days per number depending on the losing carrier. There is no activation fee and no per-extension setup fee.
+Yes: $15 per number, in or out. It is the only one-time charge we bill. Ports typically take 5 to 15 business days per number depending on the losing carrier.
 
 **Do fees change if I sign an annual term?**
 The government taxes and pass-throughs are calculated on your service charges and service address regardless of contract length. An annual term can lower the base rate modestly, and because most pass-throughs are a percentage of that base, those dollar amounts move with it. Our default is month-to-month with 30 days written notice; annual terms are optional.

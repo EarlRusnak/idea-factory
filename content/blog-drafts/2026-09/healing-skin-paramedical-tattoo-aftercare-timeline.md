@@ -28,7 +28,7 @@ tags:
 author: "Dr. Cecilia Rusnak, LME, AP, DAc"
 reviewed_by: "Dr. Cecilia Rusnak, LME, AP, DAc (clinical review pending); Earl Rusnak (publishing review)"
 target_publish_date: 2026-09-16
-word_count: 2477
+word_count: 2480
 status: draft
 ---
 

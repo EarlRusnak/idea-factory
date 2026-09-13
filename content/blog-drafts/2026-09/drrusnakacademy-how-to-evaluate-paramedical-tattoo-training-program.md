@@ -23,7 +23,7 @@ tags:
   - choosing a training program
 author: Dr. Rusnak Academy
 target_publish_date: 2026-09-19
-word_count: 2102
+word_count: 2132
 status: draft
 ---
 
@@ -201,7 +201,7 @@ The Paramedical Tattoo Certification is a three-day program: one online theory d
 
 The curriculum covers pigment chemistry and color theory; sterilization and contamination protocol; scar camouflage, both surgical and traumatic; stretch mark restoration; the Advanced ISR inkless technique; consultation and contraindication screening; aftercare protocols; the regulatory frameworks of FDA, MoCRA, OSHA, and HIPAA; and supervised assessment.
 
-Instruction is led by Founder & Master Trainer Dr. Cecilia Rusnak, LME, AP, DAc, who brings 32 years of clinical experience to the program.
+Instruction is delivered by Founder & Master Trainer Dr. Cecilia Rusnak, LME, AP, DAc, who brings 32 years of clinical experience to the program. She teaches every cohort personally and is present in the room for both in-person days; the person supervising a student's hands is the person whose name is on the credential.
 
 Tuition is $5,900. The $1,000 deposit is non-refundable but transferable, and the balance is due one week before class. The kit and lifetime mentorship are included. Graduates receive the Certificate of Advanced Professional Training in Paramedical Tattooing on completion of the program, which concludes with a supervised assessment.
 

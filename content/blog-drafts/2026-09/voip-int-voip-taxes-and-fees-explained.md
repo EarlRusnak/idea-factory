@@ -18,7 +18,7 @@ tags:
   - VoIP Insights
 author: Earl Rusnak
 target_publish_date: 2026-09-16
-word_count: 1951
+word_count: 2050
 status: draft
 ---
 
@@ -68,7 +68,7 @@ status: draft
       "name": "Is a regulatory recovery fee a tax?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. It is a provider-set fee. It may recover real costs of complying with FCC and state rules, and ours does, but the provider chooses whether to charge it and how much. When comparing providers, treat regulatory recovery as part of the base price."
+        "text": "No. A tax is imposed on you by a government and remitted to it. A recovery fee passes through a charge the government imposes on the carrier. Ours recovers the FCC regulatory fees we pay as a licensed operator and is itemized under that name. When comparing providers, ask what each recovery line recovers; if the answer is not a specific government charge, treat it as part of the base price."
       }
     },
     {
@@ -138,7 +138,8 @@ Any business phone bill explained properly comes down to three buckets.
 |---|---|---|---|
 | Government taxes | Federal, state, county, city | State communications services tax, local telecom taxes, sales tax where it applies | No |
 | Government-mandated pass-throughs | Government sets the rate or requirement; the provider collects it | Federal USF, E911 or 911 surcharge, state TRS | No, though the amount depends on the provider's calculation |
-| Provider-set fees | The provider | Regulatory recovery fee, cost recovery, "administrative" or "network access" fees | Yes. These are business decisions |
+| Recovery of carrier-level government charges | A government agency bills the carrier; the carrier passes it through | FCC regulatory fee recovery, state commission assessments | Not without absorbing a real government cost |
+| Provider-set fees | The provider | "Administrative", "network access" or "service assurance" fees with no named government charge behind them | Yes. These are business decisions |
 
 The first two appear on every carrier's bill, ours included. The third is where invoices diverge. Most confusion about VoIP taxes and fees comes from treating all three as one thing.
 
@@ -166,11 +167,11 @@ None of these VoIP surcharges are within a provider's control. Showing them sepa
 
 ## FCC regulatory fees and cost recovery
 
-The FCC charges licensed carriers annual regulatory fees to fund its operations. We hold our own licenses as a [licensed telecommunications operator](https://voip-int.com/about), so we pay those fees directly and recover them through an itemized FCC cost recovery line.
+The FCC charges licensed carriers annual regulatory fees to fund its operations. Because we hold our own licenses as a [licensed telecommunications operator](https://voip-int.com/about), the FCC bills those fees to us directly. The FCC cost recovery line on our invoice passes that specific government charge through to the customers who use the licensed service, itemized under its own name so you can see exactly what it is.
 
-Here is the honest part: that recovery line is set by us. The FCC does not require it or set the amount. It recovers a real compliance cost, but by the classification above it belongs in bucket three, not two. The same goes for any line called "regulatory recovery fee", "compliance fee" or "cost recovery" on any invoice. Those fees are lawful and often legitimate. They are not taxes, and a provider that calls them government-mandated is being imprecise at best.
+That is the test to apply to any recovery line, ours included: does it point to a specific, nameable government charge that the carrier actually pays? FCC regulatory fees, state public service commission assessments and similar carrier-level charges pass that test. They are not taxes on you, but they are real government costs, and an honest invoice says which one each line recovers.
 
-It gets murkier when a line has no traceable purpose at all. "Administrative fee", "network access fee" and "service assurance fee" are labels I have seen on forwarded invoices that recover nothing in particular. They are price increases with a formal name, and you should count them as base rate when you compare quotes.
+Where invoices go wrong is the line with no traceable purpose. "Administrative fee", "network access fee" and "service assurance fee" are labels I have seen on forwarded invoices that recover nothing in particular. They are price increases with a formal name. Count them as part of the base rate when you compare quotes, because that is what they are.
 
 ## Why "no hidden fees" is not the same as "no fees"
 
@@ -186,7 +187,7 @@ Pull up your most recent bill. This works on any provider's invoice, and it turn
 
 1. **Separate base from surcharges.** Add up every recurring line for the service itself: seats, add-ons, minutes, equipment. That is your base.
 2. **Compute the percentage.** Add up everything else and divide by the base. Over 30 percent, keep going; something other than government is probably in there.
-3. **Find the provider-set fees.** Anything labeled recovery, administrative, compliance, network access or assurance is set by the provider. Add those to the base. That is the real per-seat price.
+3. **Find the provider-set fees.** For every line labeled recovery, administrative, compliance, network access or assurance, ask what government charge it recovers. If there is a specific answer, it belongs with the pass-throughs. If there is not, add it to the base. That is the real per-seat price.
 4. **Check the term.** Look for auto-renewal language, the notice window to cancel, and any early termination fee.
 5. **Check the porting language.** Confirm you can port your numbers out, what it costs, and how long it takes.
 
@@ -219,7 +220,7 @@ Not legally, if your service carries interstate or international calls. Every in
 Because a state or local government changed it. E911 fees are set by legislatures, utility commissions and county boards, not by providers, and they are revised periodically. If it coincided with a move, the new address may simply carry a different rate.
 
 **Is a regulatory recovery fee a tax?**
-No. It is a provider-set fee. It may recover real costs of complying with FCC and state rules, and ours does, but the provider chooses whether to charge it and how much. When comparing providers, treat regulatory recovery as part of the base price.
+No. A tax is imposed on you by a government and remitted to it. A recovery fee passes through a charge the government imposes on the carrier. Ours recovers the FCC regulatory fees we pay as a licensed operator and is itemized under that name. When comparing providers, ask what each recovery line recovers; if the answer is not a specific government charge, treat it as part of the base price.
 
 **Are fees different on Pro Mobile or SIP trunking?**
 Yes, in structure. [Pro Mobile](https://voip-int.com/pro-mobile) lines run on wireless networks and carry the wireless-specific surcharges governments apply to mobile service. [SIP trunking](https://voip-int.com/sip-trunking) is billed per channel with metered usage, so the taxable base moves with call volume, but the same categories of government pass-throughs apply. In every case they are itemized.

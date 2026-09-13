@@ -28,7 +28,7 @@ tags:
 author: "Dr. Cecilia Rusnak, LME, AP, DAc"
 reviewed_by: "Dr. Cecilia Rusnak, LME, AP, DAc (clinical review pending); Earl Rusnak (publishing review)"
 target_publish_date: 2026-09-16
-word_count: 2480
+word_count: 2493
 status: draft
 ---
 
@@ -334,7 +334,7 @@ The timeline is the same, but reconstructed skin often has reduced sensation, so
 
 Paramedical tattoo aftercare is a partnership. You protect the skin at home, and the clinic refines the result in the chair.
 
-Schedule your video consultation by calling [(689) 288-8011](tel:+16892888011) or [book online](https://bookingpage.healing-skin.com/home-page-285222). If you are weighing the investment, [what scar camouflage costs in 2026](https://healing-skin.com/scar-camouflage-cost-2026/) explains what shapes a quote. Financing is available through Cherry, Klarna, and Affirm, and you can [apply in under two minutes without affecting your credit score](https://book.healing-skin.com/financing).
+Schedule your video consultation by calling [(689) 288-8011](tel:+16892888011) or [book online](https://bookingpage.healing-skin.com/home-page-285222). Consultations and aftercare support are available in English and Spanish; se habla español. If you are weighing the investment, [what scar camouflage costs in 2026](https://healing-skin.com/scar-camouflage-cost-2026/) explains what shapes a quote. Financing is available through Cherry, Klarna, and Affirm, and you can [apply in under two minutes without affecting your credit score](https://book.healing-skin.com/financing).
 
 ### Continue Your Results at Home
 

@@ -27,7 +27,7 @@ tags:
 author: AcuMedGroup Wellness Center
 medically_reviewed_by: "Dr. Cecilia Rusnak, LME, AP, DAc"
 target_publish_date: 2026-09-17
-word_count: 1902
+word_count: 1957
 status: draft
 ---
 
@@ -105,7 +105,7 @@ status: draft
       "name": "How do I find acupuncture near me in Kissimmee, FL?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "AcuMedGroup is located at 1107 Person St in Kissimmee's Medical District, open Monday through Friday, 9:00 AM to 6:00 PM. Call (407) 624-5258 or use our online contact form to request your first appointment."
+        "text": "AcuMedGroup is located at 1107 Person St in Kissimmee's Medical District, open Monday through Friday, 9:00 AM to 6:00 PM. Call (407) 624-5258 or use our online contact form to request your first appointment. Our team is bilingual, so you can book and be treated in English or Spanish."
       }
     }
   ]
@@ -160,6 +160,8 @@ A little preparation makes your first acupuncture appointment more comfortable a
 **Wear loose, comfortable clothing.** Many acupuncture points sit below the knee and elbow, along the back, and on the abdomen. Loose pants that roll up easily and a top with sleeves you can push above the elbow mean you can often stay fully dressed. If a treatment area needs more access, we will drape you appropriately.
 
 **Arrive a few minutes early for intake.** Your first visit includes paperwork and a detailed conversation. Ten extra minutes means you are not rushing, and rushing is the opposite of what we want your nervous system doing before treatment.
+
+**Prefer to talk it through in Spanish?** Our clinical team is bilingual. Your intake, your treatment plan, and every question in between can happen in English or Spanish, whichever is more comfortable for you. Se habla español.
 
 **Think about your goals.** Sciatic pain down your leg? Poor sleep? Tension headaches? Anxiety? Knowing what you most want to change helps us build a plan around it.
 
@@ -241,10 +243,10 @@ When performed by a trained, licensed practitioner using sterile, single-use nee
 Acupuncture is best studied for chronic pain, and many of our patients come for exactly that. We also treat anxiety, insomnia, digestive issues, and other conditions, and we will be honest about what the evidence supports for your concern.
 
 **How do I find acupuncture near me in Kissimmee, FL?**
-AcuMedGroup is located at 1107 Person St in Kissimmee's Medical District, open Monday through Friday, 9:00 AM to 6:00 PM. Call (407) 624-5258 or use our online contact form to request your first appointment.
+AcuMedGroup is located at 1107 Person St in Kissimmee's Medical District, open Monday through Friday, 9:00 AM to 6:00 PM. Call (407) 624-5258 or use our online contact form to request your first appointment. Our team is bilingual, so you can book and be treated in English or Spanish.
 
 ## Book Your First Acupuncture Appointment in Kissimmee, FL
 
 Being nervous about your first acupuncture appointment is normal. Being informed makes the nerves manageable. Come with a light meal in you, loose clothing on, and a list of your medications and questions. We will handle the rest.
 
-Our clinic is at 1107 Person St, Kissimmee, FL 34741, in Kissimmee's Medical District, open Monday through Friday from 9:00 AM to 6:00 PM. To schedule your first visit, [request an appointment online](https://acumedgroup.com/contact-us/) or call AcuMedGroup at [(407) 624-5258](tel:+14076245258).
+Our clinic is at 1107 Person St, Kissimmee, FL 34741, in Kissimmee's Medical District, open Monday through Friday from 9:00 AM to 6:00 PM. To schedule your first visit, [request an appointment online](https://acumedgroup.com/contact-us/) or call AcuMedGroup at [(407) 624-5258](tel:+14076245258). Se habla español.

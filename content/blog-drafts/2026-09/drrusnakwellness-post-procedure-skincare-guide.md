@@ -21,7 +21,7 @@ tags:
   - Calm Flow
 author: "Dr. Cecilia Rusnak, LME, AP, DAc"
 target_publish_date: 2026-09-18
-word_count: 1790
+word_count: 1761
 status: draft
 ---
 
@@ -32,7 +32,7 @@ status: draft
 - Author field: Dr. Cecilia Rusnak, LME, AP, DAc. Publish date: 2026-09-18 (same week as the healing-skin.com aftercare timeline post; publish this one after the clinical post is live so the outbound link resolves).
 - Paste the "Post body" section below from the H1 down. Shopify uses the article title field as the H1, so drop the markdown H1 line if the theme renders the title automatically.
 - Tags: post-procedure skincare, aftercare, sensitive skin, scar care, sunscreen, Calm Flow.
-- Consider a featured-product block for the Aftercare Kit only once inventory is restored (see table).
+- Consider a featured-product block for the Aftercare Kit once inventory is restored.
 
 **SEO fields (Shopify "Search engine listing")**
 - Page title (54 chars): Post-Procedure Skincare: What to Use After a Treatment
@@ -55,7 +55,6 @@ Standing at your shelf after a facial, peel, microneedling, or paramedical tatto
 - [ ] /products/dr-rusnak-wellness-scar-repair-silicone-gel
 - [ ] /products/dr-rusnak-wellness-qifirm-peptide-renewal
 - [ ] /products/dr-rusnak-wellness-anti-aging-body-moisturizer-with-retinol
-- [ ] /products/post-procedure-aftercare-kit (linked once)
 - [ ] /products/dr-rusnak-wellness-calm-flow-water-cream (linked once)
 - [ ] /collections/scar-care
 - [ ] /collections/sensitive-skin-care
@@ -76,10 +75,9 @@ Standing at your shelf after a facial, peel, microneedling, or paramedical tatto
 | Scar Repair Silicone Gel | /products/dr-rusnak-wellness-scar-repair-silicone-gel | In stock | 1 |
 | Qi Firm Peptide Renewal | /products/dr-rusnak-wellness-qifirm-peptide-renewal | In stock | 1 |
 | Anti-Aging Body Moisturizer with Retinol | /products/dr-rusnak-wellness-anti-aging-body-moisturizer-with-retinol | In stock | 1 |
-| Post-Procedure Aftercare Kit | /products/post-procedure-aftercare-kit | **0 inventory** | 1 |
 | Calm Flow Water Cream | /products/dr-rusnak-wellness-calm-flow-water-cream | **0 inventory** | 1 |
 
-**Inventory flag for Earl:** the Post-Procedure Aftercare Kit and Calm Flow Water Cream both show zero inventory as of Sep 13, and so do several Qi serums (QiC Plus Corrective Serum, QiBrightening Corrective Serum, QiClear AHA Cleanser, Brighten Protect Trio). The Kit is the natural hero product for this post; if it will not be restocked by Sep 18, either enable "continue selling when out of stock" with a back-in-stock notice, or hold the Kit sentence and re-add it later. The Water Cream is mentioned once as an optional alternative and can be cut without affecting the routine.
+**Inventory note:** the Post-Procedure Aftercare Kit sentence was removed on Earl's instruction (kit showed zero inventory Sep 13). Re-add a Kit sentence under the three-step routine when it is restocked. Calm Flow Water Cream (also zero) is mentioned once as an optional alternative and can be cut without affecting the routine. Several Qi serums (QiC Plus, QiBrightening, QiClear AHA, Brighten Protect Trio) are also at zero and are not linked.
 
 **Facts for Earl to verify before publishing**
 1. The healing-skin.com companion post is live at exactly `https://healing-skin.com/paramedical-tattoo-aftercare-timeline/` before this goes out.
@@ -138,8 +136,6 @@ When your provider gives the go-ahead for products, this is the post-procedure s
 **Step 2: Comfort and hydrate.** I formulated [Qi Restore Oil](/products/dr-rusnak-wellness-qi-restore-oil), tagline "Nourishment for Healing Faces," to help treated skin feel soft and cushioned. Warm two or three drops between your fingertips and press, do not rub, onto damp skin. If you prefer a cream texture, [Calm Flow Water Cream](/products/dr-rusnak-wellness-calm-flow-water-cream) does the same job in a lighter, water-based form.
 
 **Step 3: Protect.** [Healing Support SPF 40 Sunscreen](/products/dr-rusnak-wellness-healing-support-spf40-sunscreen) is a mineral, broad-spectrum SPF 40. Mineral filters sit on the surface of the skin, which is why I chose them for a mineral sunscreen after a procedure. Apply generously every morning once cleared, and reapply outdoors.
-
-These three are also sold together as the [Post-Procedure Aftercare Kit](/products/post-procedure-aftercare-kit), the curated three-step set I assembled so nobody has to guess which aftercare products belong on the shelf.
 
 One addition: once an area is fully closed and healed, and your provider says silicone is appropriate, [Scar Repair Silicone Gel](/products/dr-rusnak-wellness-scar-repair-silicone-gel) supports the look and feel of the settled scar. Never on open or scabbed skin. My [silicone scar gel guide](/blogs/news/silicone-scar-gel-guide) covers the how and why.
 

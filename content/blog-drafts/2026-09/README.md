@@ -77,9 +77,13 @@ Images are in images/ (PNG, 1344x752). The `build_html.py` script rebuilds html/
 - Dr. Rusnak Wellness inventory: the Post-Procedure Aftercare Kit, Calm Flow Water Cream, Qi C+, Qi Brightening
   and Qi Clear show zero units in Shopify on Sep 13. The store post leans on in-stock items and mentions the
   kit once. Restock or swap before publishing.
-- The Healing Skin aftercare guidance in the post mirrors the /scar-camouflage/ service page (dry, no sun,
-  silicone gel twice daily for 4–6 weeks, SPF 40 daily, retinol after week 4). Cecilia should confirm this is
-  also the protocol she wants stated for 3D areola work on post-mastectomy and radiated skin.
+- Cecilia confirmed the aftercare protocol on 2026-09-13 (answers applied 2026-09-14): no "ghosting phase";
+  healing runs 4 to 8 weeks per session depending on skin; silicone gel starts once the skin has closed, per
+  the bottle directions; SPF once healed, timing depends on the area; retinol from week 4 on the treated area
+  and surrounding skin; day 1 assumptions correct; "three decades" is fine. The Healing Skin post, the
+  Wellness post, the timeline graphic (images/02) and the Shopify draft were all updated. If Earl already
+  staged the Healing Skin draft in WordPress, replace its body with html/healing-skin-paramedical-tattoo-aftercare-timeline.html
+  and swap the inline graphic for the new images/02-healing-skin-timeline.png.
 - AcuMedGroup: confirm single-use sterile needles and whether new-patient intake forms are online.
 - VoIP: confirm the pricing page still shows $17 / $29 and that the 10-seat illustrative example matches
   current pass-through math for a Florida service address.

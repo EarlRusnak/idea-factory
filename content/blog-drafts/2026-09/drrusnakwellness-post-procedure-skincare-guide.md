@@ -21,7 +21,7 @@ tags:
   - Calm Flow
 author: "Dr. Cecilia Rusnak, LME, AP, DAc"
 target_publish_date: 2026-09-18
-word_count: 1761
+word_count: 1774
 featured_image: images/05-wellness-featured.png
 featured_alt: "Micellar water, facial oil and mineral sunscreen on a marble shelf, a simple post-procedure skincare routine"
 inline_image: images/06-wellness-three-steps.png
@@ -167,9 +167,9 @@ Paramedical tattooing is different from a facial because pigment has been implan
 From the product side, the sequence is:
 
 1. **Keep the area dry exactly as instructed.** No micellar water, no oil, no cream over the tattooed area during the dry phase. Post-procedure skincare for a tattooed scar begins with doing nothing to it.
-2. **Silicone gel once the area is closed** and your provider says silicone is appropriate. Scar Repair Silicone Gel goes on as directed. The clinic's published guidance is twice daily for 4 to 6 weeks; your own provider's timing wins.
+2. **Silicone gel once the area is closed** and your provider says silicone is appropriate. Scar Repair Silicone Gel goes on as directed on the bottle. The clinic's protocol runs it twice daily for 4 to 6 weeks; your own provider's timing wins.
 3. **Mineral SPF 40 daily** over the area once cleared. Sun exposure is the fastest way to change how the result looks.
-4. **Retinol comes last.** My [Anti-Aging Body Moisturizer with Retinol](/products/dr-rusnak-wellness-anti-aging-body-moisturizer-with-retinol) is a later-stage product for settled body skin. The clinic's own guidance is after week 4, and only once your provider clears it.
+4. **Retinol comes last.** My [Anti-Aging Body Moisturizer with Retinol](/products/dr-rusnak-wellness-anti-aging-body-moisturizer-with-retinol) is a later-stage product for settled body skin, used on the treated area and the skin around it. The clinic's own guidance is after week 4, and only once your provider clears it.
 
 Everything for this stage is grouped in the [Scar Care collection](/collections/scar-care).
 

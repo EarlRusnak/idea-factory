@@ -71,9 +71,14 @@ Recent posts (May 2026): /c-section-scar-camouflage/ · /tummy-tuck-scar-camoufl
 /paramedical-tattoo-financing-cherry-klarna-affirm/ · /paramedical-tattoo-licensing-by-state-2026/ ·
 /paramedical-tattoo-artist-salary-realistic-income-2026/ · /scar-camouflage-dark-skin/ ·
 /paramedical-tattooing-insurance-coverage/ · /paramedical-tattoo-training-cost/
-Service-page aftercare facts already published: 2–4 sessions spaced 4–6 weeks; surgeons generally recommend
-waiting twelve months after surgery or injury before camouflage; keep area dry, avoid sun during healing;
-silicone gel twice daily for 4–6 weeks; SPF 40 daily; retinol moisturizer after week 4.
+Aftercare facts (service page plus Cecilia's confirmations of 2026-09-13): 2–4 sessions spaced 4–6 weeks; surgeons
+generally recommend waiting twelve months after surgery or injury before camouflage; healing per session takes
+4–8 weeks depending on skin; there is NO "ghosting phase" (never use that term or describe color vanishing and
+returning); keep the area dry and shaded while healing; patients leave with the area covered and written
+instructions, no products on day 1 unless given; silicone gel starts once the skin has closed, per the bottle
+directions, then twice daily for 4–6 weeks; SPF 40 daily once healed (timing depends on the area); retinol
+moisturizer from week 4 on the treated area and the surrounding skin; "three decades" and "32 years" of
+experience are both acceptable.
 Search Console Aug 2026: 208 clicks (−19% vs July), 16K impressions; top pages: home 76, /paramedical-tattoo-training/ 59,
 /paramedical-tattoo-clinic-florida/ 17; growing queries: "paramedical tattoo training near me", "medical tattoo training near me".
 Google reviews: 5.0★, 65 reviews (as cited in the c-section post).

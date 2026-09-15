@@ -16,7 +16,7 @@ Credentials come from the Claude environment (never from the repo):
   healing-skin.com      HS_WP_USER   HS_WP_APP_PASSWORD
   acumedgroup.com       ACU_WP_USER  ACU_WP_APP_PASSWORD
   drrusnakacademy.com   ACAD_WP_USER ACAD_WP_APP_PASSWORD
-  voip-int.com          ODOO_URL (default https://voip-int.com) ODOO_DB (default voipintl19) ODOO_LOGIN ODOO_API_KEY
+  voip-int.com          ODOO_URL (default https://voip-int.com) ODOO_DB (default voipintl19) ODOO_LOGIN ODOO_KEY (ODOO_APIKEY / ODOO_API_KEY also accepted)
   drrusnakwellness.com  SHOPIFY_STORE (xxxx.myshopify.com) SHOPIFY_ADMIN_TOKEN   (optional; connector path preferred)
 Every CMS write creates a DRAFT (status draft / is_published False / isPublished false). Nothing goes live from here.
 """
@@ -129,9 +129,10 @@ def wp_publish(fm, dry_run=False):
 # ---------- Odoo (voip-int.com) ----------
 def odoo_publish(fm, dry_run=False):
     url = os.environ.get("ODOO_URL", "https://voip-int.com"); db = os.environ.get("ODOO_DB", "voipintl19")
-    login, key = os.environ.get("ODOO_LOGIN"), os.environ.get("ODOO_API_KEY")
+    login = os.environ.get("ODOO_LOGIN", "earl.rusnak@voip-int.com")
+    key = os.environ.get("ODOO_KEY") or os.environ.get("ODOO_APIKEY") or os.environ.get("ODOO_API_KEY")
     if not (login and key):
-        sys.exit("Missing ODOO_LOGIN / ODOO_API_KEY in the environment.")
+        sys.exit("Missing ODOO_KEY (the same variable the voip-int crawl tools use) in the environment.")
     common = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/common"); uid = common.authenticate(db, login, key, {})
     if not uid:
         sys.exit("Odoo authentication failed.")

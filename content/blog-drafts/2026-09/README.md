@@ -48,7 +48,7 @@ schema block, and body.
 | healing-skin.com | WordPress (Rank Math) | HTML + images ready in html/ and images/ | A WordPress Application Password for an Editor account, added to the Claude environment as `HS_WP_USER` / `HS_WP_APP_PASSWORD`. |
 | acumedgroup.com | WordPress (SEOPress) | HTML + images ready | Same: `ACU_WP_USER` / `ACU_WP_APP_PASSWORD`. |
 | drrusnakacademy.com | WordPress | HTML + images ready | Same: `ACAD_WP_USER` / `ACAD_WP_APP_PASSWORD`. |
-| voip-int.com | Odoo 19 | HTML + images ready | `ODOO_API_KEY` for earl.rusnak@voip-int.com (the same pattern the July SEO scripts used), added to the Claude environment. |
+| voip-int.com | Odoo 19 | HTML + images ready | `ODOO_KEY` for earl.rusnak@voip-int.com (the same pattern the July SEO scripts used), added to the Claude environment. |
 
 Images are in images/ (PNG, 1344x752). The `build_html.py` script rebuilds html/ from the markdown; pass
 `image-hosting.json` to swap local image paths for hosted URLs once each CMS has the files.

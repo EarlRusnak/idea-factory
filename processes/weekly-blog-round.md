@@ -51,7 +51,7 @@ Earl asks.
 | healing-skin.com | `HS_WP_USER`, `HS_WP_APP_PASSWORD` | WordPress › Users › (an Editor account) › Application Passwords › name "Claude blog round" |
 | acumedgroup.com | `ACU_WP_USER`, `ACU_WP_APP_PASSWORD` | same |
 | drrusnakacademy.com | `ACAD_WP_USER`, `ACAD_WP_APP_PASSWORD` | same |
-| voip-int.com | `ODOO_LOGIN`, `ODOO_API_KEY` (optional `ODOO_URL`, `ODOO_DB`; defaults https://voip-int.com, voipintl19) | Odoo › Preferences › Account Security › New API Key |
+| voip-int.com | `ODOO_LOGIN`, `ODOO_KEY` (same names as the voip-int crawl tools on the `claude/nifty-hamilton-w3sx5r` branch; optional `ODOO_URL`, `ODOO_DB`; defaults https://voip-int.com, voipintl19) | Odoo › Preferences › Account Security › New API Key |
 | drrusnakwellness.com | Shopify connector attached to the Routine (preferred). Optional token path: `SHOPIFY_STORE`, `SHOPIFY_ADMIN_TOKEN` | claude.ai › Routines › this Routine › connectors |
 
 Add the variables in claude.ai › Code › Environments › (this environment) › Environment variables. Connector

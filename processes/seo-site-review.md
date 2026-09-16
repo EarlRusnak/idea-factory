@@ -14,7 +14,7 @@ created: 2026-09-10
 
 Weekly SEO review of every website (see [site-inventory](site-inventory.md)) with a single ranked action list.
 It starts from Monday's Ahrefs Health Report, adds Google Search Console signals from Gmail, and, when the
-network policy allows, live homepage checks. Search Console is not connected to any API tool (the free Adspirer
+live page checks. Search Console is not connected to any API tool (the free Adspirer
 plan does not include it), so all Search Console figures come from Google's notification emails; where an action
 needs page-level data the emails do not carry, the report names the exact Search Console report to open.
 
@@ -23,8 +23,9 @@ needs page-level data the emails do not carry, the report names the exact Search
 2. Gmail, last 35 days from sc-noreply@google.com: monthly performance emails (clicks, impressions, top and
    growing pages and queries, devices, countries), indexing alerts, validation results, structured-data
    notices, milestone emails. Prior month's email is fetched for percentage change.
-3. WebFetch of each homepage for title, meta description, H1, canonical, noindex. Currently blocked by the
-   environment network policy; the review records "live check unavailable" until the domains are allowed.
+3. Live fetch of each homepage for title, meta description, H1, canonical, noindex. **Working as of 2026-09-16** —
+   all six domains returned HTTP 200 from the cloud environment, so live checks are no longer recorded as
+   unavailable. Crawling the full sitemap per site is also possible (see reports/ for the Academy example).
 
 ## Ranking rules
 Revenue sites first (healing-skin.com, acumedgroup.com). Within that: indexing blockers and 4xx / redirect

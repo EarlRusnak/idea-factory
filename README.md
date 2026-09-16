@@ -20,3 +20,13 @@ Shared outputs
 
 Schedules are stored in UTC (12:30, 13:00). They read as 8:30 / 9:00 AM Eastern during daylight time and
 7:30 / 8:00 AM after clocks change in November; adjust the cron by one hour then if the earlier time is a problem.
+
+One-off reports
+
+- [Dr. Rusnak Academy site review (2026-09-16)](reports/drrusnakacademy-site-review-2026-09-16.md) —
+  full live crawl of all 24 pages plus Search Console emails. Completes the work of the
+  "Dr. Rusnak Academy site review" session, which never ran (its Remote Control container could not
+  reach the Mac).
+- [Pending edits (2026-09-16)](reports/pending-edits-2026-09-16.md) — Powder Botox date of
+  Nov 6, 2026 and the 3-day paramedical format. Both need a logged-in wp-admin session on the Mac;
+  a cloud session cannot apply them.
